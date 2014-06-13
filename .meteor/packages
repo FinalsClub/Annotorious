@@ -7,3 +7,5 @@ standard-app-packages
 autopublish
 insecure
 simple-schema
+autoform
+collection2

@@ -1,4 +1,36 @@
-WorkSchema = new Meteor.Collection("works", {
+
+SectionContent = new Meteor.Collection("sectionContent", {
+  schema: {
+    html: {
+      type: String
+    },
+    annotations: {
+      type: [Object],
+      optional: true,
+      blackbox: true
+    }
+  }
+});
+
+Section = new SimpleSchema({
+  name: {
+    type: String,
+    label: "Section name"
+  },
+  order: {
+    type: Number // TODO: somehow give this an autoValue to append to the section list
+  },
+  /*subSections: {
+    type: [Section],
+    label: "Subsections"
+  },*/
+  content: {
+    type: SectionContent,
+    optional: true
+  }
+});
+
+Works = new Meteor.Collection("works", {
   schema: {
     title: {
       type: String,
@@ -43,37 +75,8 @@ WorkSchema = new Meteor.Collection("works", {
       }
     },
     sections: {
-      type: [Sections],
+      type: [Section],
       optional: true
     }
   }
 });
-
-Sections = new SimpleSchema({
-  name: {
-    type: String,
-    label: "Section name"
-  },
-  order: {
-    type: Number // TODO: somehow give this an autoValue to append to the section list
-  },
-  content: {
-    type: SectionContent,
-    optional: true
-  }
-});
-
-
-SectionContent = new Meteor.Collection("sectionContent", {
-  schema: {
-    html: {
-      type: String
-    },
-    annotations: {
-      type: [Object],
-      optional: true,
-      blackbox: true
-    }
-  }
-});
-

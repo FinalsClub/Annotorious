@@ -4,7 +4,14 @@
 
 <body>
   {{> hello}}
+  {{> insertWorkForm}}
+
+
 </body>
+
+<template name="insertWorkForm">
+  {{> quickForm collection="Works" id="insertWorkForm" type="insert"}}
+</template>
 
 <template name="hello">
   <h1>Goodbye World!</h1>
