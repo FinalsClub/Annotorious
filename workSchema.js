@@ -70,8 +70,9 @@ SectionContent = new Meteor.Collection("sectionContent", {
       type: String
     },
     annotations: {
-      type: [Annotations],
-      optional: true
+      type: [Object],
+      optional: true,
+      blackbox: true
     }
   }
 });
