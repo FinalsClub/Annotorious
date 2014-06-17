@@ -6,7 +6,6 @@ SectionContent = new Meteor.Collection("sectionContent", {
     },
     annotations: {
       type: [Object],
-      optional: true,
       blackbox: true
     }
   }
@@ -17,13 +16,19 @@ Section = new SimpleSchema({
     type: String,
     label: "Section name"
   },
-  order: {
-    type: Number // TODO: somehow give this an autoValue to append to the section list
+  subSections: {
+    type: [Object],
+    label: "Subsections",
+    custom: function() {
+      if (this.value.length > 0 && this.field('content').isSet)
+        return "sectionWithContent";
+
+      _.each(this.value, function(section) {
+        if (!Match.test(this.value, Section))
+          return "invalidSection";
+      })
+    }
   },
-  /*subSections: {
-    type: [Section],
-    label: "Subsections"
-  },*/
   content: {
     type: SectionContent,
     optional: true
