@@ -2,43 +2,47 @@
   <title>Annotorious</title>
 </head>
 
-
 <body>
-  {{> body}}
 </body>
 
-<template name="body">
-  {{! tray note http://stackoverflow.com/questions/18864657/icon-bar-in-twitter-bootstrap-navigation-bar }}
-  {{> load_content }} {{! tracks Session.body_page }}
+
+<!-- ABOUT PAGE -->
+
+
+<template name="about">
+  <div>stubbed like a toe</div>
 </template>
 
 
-<template name="homepage">
-  {{> homepage_header}}
+<!-- WELCOME PAGE -->
+
+
+<template name="welcome">
+  {{> welcome_header}}
   <hr/>
   <div>
-  {{> load_content }} {{! tracks Session.homepage_which_page }}
+  {{> load_content }} {{! tracks Session.welcome_which_page }}
   </div>
   <hr/>
   {{> anonymous_browse}}
   {{> point_to_authenticate}}
 </template>
 
-<template name="homepage_header">
-  <div class="logo" id="homepage_header_logo" ><img src="/annotorious_logo_64px.png" /></div>
+<template name="welcome_header">
+  <div class="logo" id="welcome_header_logo" ><img src="/annotorious_logo_64px.png" /></div>
   {{! project title comes from document title above }}
-  <div class="project" id="homepage_header_project">{{project}}</div>
-  <div class="motto" id="homepage_header_motto">{{motto}}</div>
+  <div class="project" id="welcome_header_project">{{project}}</div>
+  <div class="motto" id="welcome_header_motto">{{motto}}</div>
 </template>
 
-<template name="homepage_blurb">
-  <div id="homepage_blurb_books">
+<template name="welcome_blurb">
+  <div id="welcome_blurb_books">
       Over 400 public domain books to read and annotate.
   </div>
-  <div id="homepage_blurb_community">
+  <div id="welcome_blurb_community">
       A large community to share with and learn from.
   </div>
-  <div id="homepage_blurb_free">
+  <div id="welcome_blurb_free">
      Totally free. Totally awesome.
   </div>
 </template>
@@ -69,5 +73,22 @@
 </template>
 
 <template name="anonymous_browse">
-  <div>Explore Annotorious without an account.</div>
+  <div>
+    <span id="anonymous_browse_link">Explore Annotorious without an account.</span>
+  </div>
+</template>
+
+
+<!-- SIDE PANEL -->
+<template name="side_tray">
+  {{! tray note http://stackoverflow.com/questions/18864657/icon-bar-in-twitter-bootstrap-navigation-bar }}
+  <div>tray would show up on this page</div>
+</template>
+
+
+<!-- LIBRARY PAGE -->
+
+<template name="library">
+  {{> side_tray }}
+  <div>replace this with an interface to the collection</div>
 </template>

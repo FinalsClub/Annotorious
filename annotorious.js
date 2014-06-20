@@ -1,46 +1,40 @@
 if (Meteor.isClient) {
 
   /*
+   ABOUT TEMPLATE
+   */
+
+
+  /*
+   WELCOME TEMPLATE
+   */
+
+  /*
    Some project configuration settings for flexibility.
    */
-  Template.homepage_header.project = function () {
-    /* Pull this from the document title */
-    return $('head').context.title;
+  Template.welcome_header.project = function () {
+    /* Pull this from description.js */
+    var description = {
+      'title': 'Annotorious'
+    };
+    return description.title;
   };
 
-  Template.homepage_header.motto = function () {
+  Template.welcome_header.motto = function () {
     // Maybe this would be better in a JSON file somehow/somewhere?
     return "The best way to read and annotate the world's best books.";
   };
 
-
-  // TODO DRY the copy pasted load_content functions
-  // TODO replace body routing with Iron-Router
-
-  /*
-   Fills in the body with a template specified in Session.body_page
-   */
-  Template.body.load_content = function () {
-    var page = Session.get('body_page');
-    if (page === undefined) {
-      /* default to the homepage */
-      page = 'homepage';
-      Session.set('body_page', page);
-    }
-    if (Template.hasOwnProperty(page))
-      return Template[page];
-  };
-
   /*
    Fills in the welcome screen middle section with a template specified
-   in Session.homepage_which_page
+   in Session.welcome_which_page
    */
-  Template.homepage.load_content = function () {
-    var page = Session.get('homepage_which_page');
+  Template.welcome.load_content = function () {
+    var page = Session.get('welcome_which_page');
     if (page === undefined) {
       /* default to the blurb */
-      page = 'homepage_blurb';
-      Session.set('homepage_which_page', page);
+      page = 'welcome_blurb';
+      Session.set('welcome_which_page', page);
     }
     if (Template.hasOwnProperty(page))
       return Template[page];
@@ -51,10 +45,20 @@ if (Meteor.isClient) {
    */
   Template.point_to_authenticate.events({
     'click #point_to_authenticate_log_in': function () {
-      Session.set('homepage_which_page', 'authenticate');
+      Session.set('welcome_which_page', 'authenticate');
     },
     'click #point_to_authenticate_create_account': function () {
-      Session.set('homepage_which_page', 'new_user');
+      Session.set('welcome_which_page', 'new_user');
+    }
+  });
+
+  /*
+   Responds to welcome screen events
+   */
+  Template.anonymous_browse.events({
+    'click #anonymous_browse_link': function () {
+      console.log('CLICKED!!!');
+      Router.go('/library');
     }
   });
 
@@ -68,6 +72,12 @@ if (Meteor.isClient) {
         console.log("You pressed the button");
     }
   });
+
+
+  /*
+   LIBRARY TEMPLATE
+   */
+
 }
 
 if (Meteor.isServer) {
@@ -75,3 +85,22 @@ if (Meteor.isServer) {
     // code to run on server at startup
   });
 }
+
+
+Router.map(function() {
+  // Read paths from a JSON configuration file.
+  // Formatted as { '/path': 'template', ... }
+  // This seems nicer in a config file than hard coding it here.
+  // Pull this from routes.js
+  var routes = {
+    "/": "welcome",
+    "/welcome": "welcome",
+    "/about": "about",
+    "/library": "library"
+  };
+  var paths = Object.keys(routes)
+  for (var idx in paths) {
+    var key = paths[idx]
+    this.route(routes[key], {path: key});
+  }
+});

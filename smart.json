@@ -1,6 +1,7 @@
 {
   "packages": {
     "simple-schema": {},
-    "autoform": {}
+    "autoform": {},
+    "iron-router": {}
   }
 }
