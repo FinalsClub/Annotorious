@@ -1,12 +1,117 @@
 /* CSS declarations go here */
 
 body {
-    background-color: #e67e22;
-    color: #ffffff;
+  /* white on orange */
+  /*
+  background-color: #e67e22;
+  color: #ffffff;
+  */
+  /* black on white */
+  background-color: #fff;
+  padding-top: 51px; /* drop below the nav bar */
+  color: #000;
+  /* bluish green highlights */
+  /* #16a085 */
+  /* light gray highlights */
+  /* #8c8c8c */
+  /* dark gray tray */
+  /* #333 */
 }
 
 /*
-.project {
-    background: url('/annotorious_logo_64px.png') no-repeat 0 center;
+ adapted from http://www.bootply.com/3iSOTAyumP
+ by http://www.bootply.com/users/homeliss
+ */
+.navbar-center.navbar-brand, .navbar-center > .navbar-brand {
+  float: none;
 }
-*/
+.navbar-center
+{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  margin: auto;
+  height:100%;
+  z-index: -10;
+}
+
+/*
+ adapted from http://www.bootply.com/f3ILu2accb }}
+ by http://www.bootply.com/users/xtremely }}
+ */
+#sidebar {
+  background-color:#333;
+}
+#sidebar li {
+  border:0 #f2f2f2 solid;
+  font-weight: bold;
+}
+.navbar-toggle {
+  float: left;
+  margin-left: 8px;
+}
+
+/* TODO: drop this. It defeats the purpose of using column layouts. */
+/* collapsed sidebar styles */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -41.6%;
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -41.6%;
+  }
+  .row-offcanvas-right.active {
+    right: 41.6%;
+  }
+  .row-offcanvas-left.active {
+    left: 41.6%;
+  }
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 41.6%;
+  }
+  #sidebar {
+    background-color:#3b3b3b;
+    padding-top:0;
+  }
+  #sidebar .nav>li {
+    color: #ddd;
+    background: linear-gradient(#3E3E3E, #383838);
+    border-top: 1px solid #484848;
+    border-bottom: 1px solid #2E2E2E;
+  }
+  #sidebar .nav>li:first-child {
+    border-top:0;
+  }
+  #sidebar .nav>li>a {
+    color: #ddd;
+  }
+  #sidebar .nav>li>a>img {
+    max-width: 14px;
+  }
+  #sidebar .nav>li>a:hover, #sidebar .nav>li>a:focus {
+    text-decoration: none;
+    background: linear-gradient(#373737, #323232);
+    color: #fff;
+  }
+  #sidebar .nav .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+  }
+  #sidebar .nav a:hover .caret{
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+  }
+}

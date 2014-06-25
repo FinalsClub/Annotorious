@@ -2,6 +2,7 @@
   "packages": {
     "simple-schema": {},
     "autoform": {},
-    "iron-router": {}
+    "iron-router": {},
+    "bootstrap-3": {}
   }
 }
