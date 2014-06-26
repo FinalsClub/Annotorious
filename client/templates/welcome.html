@@ -1,0 +1,63 @@
+<!-- WELCOME PAGE -->
+
+
+<template name="welcome">
+  {{> welcome_header}}
+  <hr/>
+  <div>
+  {{> load_content }} {{! tracks Session.welcome_which_page }}
+  </div>
+  <hr/>
+  {{> anonymous_browse}}
+  {{> point_to_authenticate}}
+</template>
+
+<template name="welcome_header">
+  <div class="logo" id="welcome_header_logo" ><img src="/annotorious_logo_64px.png" /></div>
+  {{! project title comes from document title above }}
+  <div class="project" id="welcome_header_project">{{project}}</div>
+  <div class="motto" id="welcome_header_motto">{{motto}}</div>
+</template>
+
+<template name="welcome_blurb">
+  <div id="welcome_blurb_books">
+      Over 400 public domain books to read and annotate.
+  </div>
+  <div id="welcome_blurb_community">
+      A large community to share with and learn from.
+  </div>
+  <div id="welcome_blurb_free">
+     Totally free. Totally awesome.
+  </div>
+</template>
+
+<template name="point_to_authenticate">
+  <div>
+    <span id="point_to_authenticate_log_in">Log In</span> or
+    <span id="point_to_authenticate_create_account">Create account</span>
+  </div>
+</template>
+
+<template name="authenticate">
+  <div class="form_group" id="authenticate_email_form_group">
+    <label for="authenticate_email_input">Email address</label>
+    <input type="text" id="authenticate_email_input" value="" />
+  </div>
+  <div class="form_group" id="authenticate_password_form_group">
+    <label for="authenticate_email_input">Password</label>
+    <input type="password" id="authenticate_password_input" value="" />
+  </div>
+  <div>Forgot?</div>
+  <input id="authenticate_submit_input" type="button" value="Log In" />
+  <div>Create an account</div>
+</template>
+
+<template name="new_user">
+  <div>stubbed</div>
+</template>
+
+<template name="anonymous_browse">
+  <div>
+    <span id="anonymous_browse_link">Explore Annotorious without an account.</span>
+  </div>
+</template>
