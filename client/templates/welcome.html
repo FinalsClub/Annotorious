@@ -33,27 +33,50 @@
 
 <template name="point_to_authenticate">
   <div>
-    <span id="point_to_authenticate_log_in">Log In</span> or
-    <span id="point_to_authenticate_create_account">Create account</span>
+    <a id="point_to_authenticate_log_in">Log In</a>,
+    <a id="point_to_authenticate_create_account">Create account</a>, or
+    <a id="proceed_without_login">Proceed without login</a>
   </div>
 </template>
 
-<template name="authenticate">
-  <div class="form_group" id="authenticate_email_form_group">
-    <label for="authenticate_email_input">Email address</label>
-    <input type="text" id="authenticate_email_input" value="" />
-  </div>
-  <div class="form_group" id="authenticate_password_form_group">
-    <label for="authenticate_email_input">Password</label>
-    <input type="password" id="authenticate_password_input" value="" />
-  </div>
-  <div>Forgot?</div>
-  <input id="authenticate_submit_input" type="button" value="Log In" />
-  <div>Create an account</div>
+<template name="login">
+ <form id="login-form" action="action">
+    <div>
+      <input type="email" id="login-email" />
+      <input type="password" id="login-password" />
+      <input type="submit" id="login-button" value="Sign in" />
+   </div>
+ </form> 
+ <a id="resetPassword">Reset Password</a>
 </template>
 
-<template name="new_user">
-  <div>stubbed</div>
+<template name="register">
+  <form id="register-form" action="action">
+    <div>
+      <label>Username: </label><input type="username" id="account-username" />
+      <label>Email: </label><input type="email" id="account-email" />
+      <label>Password: </label><input type="password" id="account-password" />
+      <input type="submit" id="create-account" value="Create an Account" />
+    </div>
+  </form>
+</template>
+
+<template name="reset">
+  {{#if resetPassword}}
+    <form id="reset-form" action="action">
+      <div>
+        <input type="text" id="new-password-password" />
+        <input type="submit" value="Change Password" />
+      </div>
+    </form>
+  {{else}}
+    <form id="recovery-form" action="action">
+      <div>
+        <input type="text" id="recovery-email" />
+        <input type="submit" value="Send Reset Instruction" />
+      </div>
+    </form>
+  {{/if}}
 </template>
 
 <template name="anonymous_browse">
