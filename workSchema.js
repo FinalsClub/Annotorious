@@ -1,15 +1,21 @@
 
-SectionContent = new Meteor.Collection("sectionContent", {
+SectionContents = new Meteor.Collection("sectionContents", {
   schema: {
     html: {
       type: String
-    },
-    annotations: {
-      type: [Object],
-      blackbox: true
     }
   }
 });
+
+Annotations = new Meteor.Collection("annotations", {
+  content_id: {
+    type: Meteor.Collection.ObjectId
+  },
+  annotation: {
+    type: Object,
+    blackbox: true
+  }
+})
 
 Section = new SimpleSchema({
   name: {
@@ -30,7 +36,7 @@ Section = new SimpleSchema({
     }
   },
   content: {
-    type: SectionContent,
+    type: Meteor.Collection.ObjectId,
     optional: true
   }
 });
