@@ -5,3 +5,13 @@
 
 <body>
 </body>
+
+<template name="top_and_side">
+  {{> top_bar }}
+  <div class="row row-offcanvas row-offcanvas-left">
+    {{> side_tray }}
+    <div class="col-xs-6 col-sm-9">
+      {{> yield}}
+    </div>
+  </div>
+</template>
