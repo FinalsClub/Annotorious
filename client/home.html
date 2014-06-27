@@ -7,11 +7,52 @@
 </body>
 
 <template name="top_and_side">
-  {{> top_bar }}
-  <div class="row row-offcanvas row-offcanvas-left">
-    {{> side_tray }}
-    <div class="col-xs-6 col-sm-9">
-      {{> yield}}
+  <div class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+
+      <nav class="tab-bar">
+        <section class="left-small">
+          <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+        </section>
+
+        {{! TODO replace this with a variable }}
+        <section class="middle tab-bar-section">
+          <h1 class="title">Annotorious</h1>
+        </section>
+      </nav>
+
+      <aside class="left-off-canvas-menu">
+        <ul class="off-campus-list">
+          {{> which_menu }}
+        </ul>
+      </aside>
+
+      <section class="main-section">
+        {{> yield }}
+      </section>
     </div>
   </div>
+</template>
+
+<template name="signed_in_menu">
+  {{> librarylink }}
+  <li><a href="#">My Items</a></li>
+  <li><a href="#">Settings</a></li>
+  {{> aboutlink }}
+  <li><a href="#">Log out</a></li>
+</template>
+
+<template name="signed_out_menu">
+  {{> librarylink }}
+  {{> aboutlink }}
+  <li><a href="/welcome">Log in</a></li>
+</template>
+
+<template name="librarylink">
+  <li><a href="/library">Library</a></li>
+</template>
+
+<template name="aboutlink">
+  {{! TODO replace with variable }}
+  <li><a href="/about">About Annotorious</a></li>
 </template>

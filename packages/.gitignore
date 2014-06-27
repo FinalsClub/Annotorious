@@ -4,4 +4,6 @@
 /moment
 /iron-router
 /blaze-layout
-/bootstrap-3
+/foundation-5
+/jquery
+/zurb-foundation

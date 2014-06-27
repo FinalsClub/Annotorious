@@ -5,7 +5,7 @@
       "simple-schema": {},
       "autoform": {},
       "iron-router": {},
-      "bootstrap-3": {}
+      "zurb-foundation": {}
     },
     "packages": {
       "simple-schema": {
@@ -23,10 +23,10 @@
         "tag": "v0.7.1",
         "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
       },
-      "bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v3.1.1-1",
-        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
+      "zurb-foundation": {
+        "git": "https://github.com/MixinLabs/meteor-foundation.git",
+        "tag": "v5.3.0-0.1.0",
+        "commit": "dbab2c02a7c7e376c0fdddc1e699f2728d8e7b01"
       },
       "collection2": {
         "git": "https://github.com/aldeed/meteor-collection2.git",

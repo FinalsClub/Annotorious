@@ -8,12 +8,11 @@
   {{> load_content }} {{! tracks Session.welcome_which_page }}
   </div>
   <hr/>
-  {{> anonymous_browse}}
   {{> point_to_authenticate}}
 </template>
 
 <template name="welcome_header">
-  <div class="logo" id="welcome_header_logo" ><img src="/annotorious_logo_64px.png" /></div>
+  <div class="logo" id="welcome_header_logo" ><img src="/annotorious_logo_64px_color.png" /></div>
   {{! project title comes from document title above }}
   <div class="project" id="welcome_header_project">{{project}}</div>
   <div class="motto" id="welcome_header_motto">{{motto}}</div>
@@ -77,10 +76,4 @@
       </div>
     </form>
   {{/if}}
-</template>
-
-<template name="anonymous_browse">
-  <div>
-    <span id="anonymous_browse_link">Explore Annotorious without an account.</span>
-  </div>
 </template>

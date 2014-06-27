@@ -68,15 +68,6 @@ if (Meteor.isClient) {
   });
 
   /*
-   Responds to welcome screen events
-   */
-  Template.anonymous_browse.events({
-    'click #anonymous_browse_link': function () {
-      Router.go('/library');
-    }
-  });
-
-  /*
    Responds to login screen events
    */
   Template.login.events({
