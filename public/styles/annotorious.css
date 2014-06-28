@@ -12,16 +12,56 @@ body {
   /* #333 */
 }
 
+/*
+ WELCOME TEMPLATE
+ */
+
 #welcome_body {
   /* white on orange */
   background-color: #e67e22;
-  color: #ffffff;
+  color: #fff;
+  text-align: center;
+  height: 100%;
 }
-
+div#welcome_body > hr {
+  width: 26em;
+  display: inline-block;
+}
+div#welcome_body a {
+  color: #fff;
+  font-weight: bold;
+}
+#welcome_header_logo {
+  padding: 16px 0px;
+}
+#welcome_header_project {
+  font-size-adjust: 1.25;
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+}
+ul.blurb {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 26em;
+}
 ul.blurb > li {
   list-style-type: none;
   list-style-image: none;
 }
 ul.blurb > li > i {
   width: 1.5em;
+}
+div#explore_annotorious {
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  /* orange on white */
+  background-color: #fff;
+  color: #e67e22;
+  margin: 0em auto 1em auto;
+  padding: 0.75em;
+  width: 12em;
+}
+div#explore_annotorious a {
+  color: #e67e22;
 }
