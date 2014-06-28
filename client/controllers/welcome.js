@@ -38,36 +38,6 @@ if (Meteor.isClient) {
   };
 
   /*
-   Fills in the welcome screen middle section with a template specified
-   in Session.welcome_which_page
-   */
-  Template.welcome.load_content = function () {
-    var page = Session.get('welcome_which_page');
-    if (page === undefined) {
-      /* default to the blurb */
-      page = 'welcome_blurb';
-      Session.set('welcome_which_page', page);
-    }
-    if (Template.hasOwnProperty(page))
-      return Template[page];
-  };
-
-  /*
-   Responds to welcome screen events
-   */
-  Template.point_to_authenticate.events({
-    'click #point_to_authenticate_log_in': function () {
-      Session.set('welcome_which_page', 'login');
-    },
-    'click #point_to_authenticate_create_account': function () {
-      Session.set('welcome_which_page', 'register');
-    },
-    'click #proceed_without_login': function() {
-      Router.go('/library');
-    }
-  });
-
-  /*
    Responds to login screen events
    */
   Template.login.events({

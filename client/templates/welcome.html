@@ -5,7 +5,7 @@
   {{> welcome_header}}
   <hr/>
   <div>
-  {{> load_content }} {{! tracks Session.welcome_which_page }}
+  {{> yield }}
   </div>
   <hr/>
   {{> point_to_authenticate}}
@@ -32,9 +32,9 @@
 
 <template name="point_to_authenticate">
   <div>
-    <a id="point_to_authenticate_log_in">Log In</a>,
-    <a id="point_to_authenticate_create_account">Create account</a>, or
-    <a id="proceed_without_login">Proceed without login</a>
+    <a id="point_to_authenticate_log_in" href="/login">Log In</a>,
+    <a id="point_to_authenticate_create_account" href="/register">Create account</a>, or
+    <a id="proceed_without_login" href="/library">Proceed without login</a>
   </div>
 </template>
 
