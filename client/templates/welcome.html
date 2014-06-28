@@ -2,17 +2,19 @@
 
 
 <template name="welcome">
-  {{> welcome_header}}
-  <hr/>
-  <div>
-  {{> yield }}
+  <div id="welcome_body">
+    {{> welcome_header}}
+    <hr/>
+    <div>
+    {{> yield }}
+    </div>
+    <hr/>
+    {{> point_to_authenticate}}
   </div>
-  <hr/>
-  {{> point_to_authenticate}}
 </template>
 
 <template name="welcome_header">
-  <div class="logo" id="welcome_header_logo" ><img src="/annotorious_logo_64px_color.png" /></div>
+  <div class="logo" id="welcome_header_logo" ><img src="/annotorious_logo_64px.png" /></div>
   {{! project title comes from document title above }}
   <div class="project" id="welcome_header_project">{{project}}</div>
   <div class="motto" id="welcome_header_motto">{{motto}}</div>

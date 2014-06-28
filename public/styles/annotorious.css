@@ -1,11 +1,6 @@
 /* CSS declarations go here */
 
 body {
-  /* white on orange */
-  /*
-  background-color: #e67e22;
-  color: #ffffff;
-  */
   /* black on white */
   background-color: #fff;
   color: #000;
@@ -15,4 +10,10 @@ body {
   /* #8c8c8c */
   /* dark gray tray */
   /* #333 */
+}
+
+#welcome_body {
+  /* white on orange */
+  background-color: #e67e22;
+  color: #ffffff;
 }
