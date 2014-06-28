@@ -17,3 +17,11 @@ body {
   background-color: #e67e22;
   color: #ffffff;
 }
+
+ul.blurb > li {
+  list-style-type: none;
+  list-style-image: none;
+}
+ul.blurb > li > i {
+  width: 1.5em;
+}

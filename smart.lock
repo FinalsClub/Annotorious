@@ -5,7 +5,8 @@
       "simple-schema": {},
       "autoform": {},
       "iron-router": {},
-      "zurb-foundation": {}
+      "zurb-foundation": {},
+      "font-awesome": {}
     },
     "packages": {
       "simple-schema": {
@@ -15,8 +16,8 @@
       },
       "autoform": {
         "git": "https://github.com/aldeed/meteor-autoform.git",
-        "tag": "v0.13.3",
-        "commit": "23a7ba0754f353513fda44f666b600e69c62a208"
+        "tag": "v0.13.5",
+        "commit": "27dd5b912eeba687b228a6a7c2c14eef63b12cca"
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
@@ -28,10 +29,15 @@
         "tag": "v5.3.0-0.1.0",
         "commit": "dbab2c02a7c7e376c0fdddc1e699f2728d8e7b01"
       },
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v4.1.0",
+        "commit": "ce6b1e92715d1938babc5d69c655c17e387f5926"
+      },
       "collection2": {
         "git": "https://github.com/aldeed/meteor-collection2.git",
-        "tag": "v0.4.1",
-        "commit": "a9ffc9b285c3af8ad631f9cda4851b0ffc30c5ce"
+        "tag": "v0.4.2",
+        "commit": "4ff4b707bec8be434919730bf101325adb215444"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",

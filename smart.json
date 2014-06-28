@@ -3,6 +3,7 @@
     "simple-schema": {},
     "autoform": {},
     "iron-router": {},
-    "zurb-foundation": {}
+    "zurb-foundation": {},
+    "font-awesome": {}
   }
 }
