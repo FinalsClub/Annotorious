@@ -5,9 +5,9 @@
       "simple-schema": {},
       "autoform": {},
       "iron-router": {},
-      "zurb-foundation": {},
       "font-awesome": {},
-      "scss": {}
+      "scss": {},
+      "foundation5-sass": {}
     },
     "packages": {
       "simple-schema": {
@@ -25,11 +25,6 @@
         "tag": "v0.7.1",
         "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
       },
-      "zurb-foundation": {
-        "git": "https://github.com/MixinLabs/meteor-foundation.git",
-        "tag": "v5.3.0-0.1.0",
-        "commit": "dbab2c02a7c7e376c0fdddc1e699f2728d8e7b01"
-      },
       "font-awesome": {
         "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
         "tag": "v4.1.0",
@@ -39,6 +34,11 @@
         "git": "https://github.com/fourseven/meteor-scss.git",
         "tag": "v0.9.3",
         "commit": "185f3b2787fb85e653f7b7bf603d1493ed14943d"
+      },
+      "foundation5-sass": {
+        "git": "https://github.com/lgollut/meteor-foundation5-sass.git",
+        "tag": "v0.0.13",
+        "commit": "10fed6a3c7edbbce6bd234ed41ca2b23ba4cf1cf"
       },
       "collection2": {
         "git": "https://github.com/aldeed/meteor-collection2.git",

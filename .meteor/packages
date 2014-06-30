@@ -12,6 +12,6 @@ collection2
 iron-router
 accounts-base
 accounts-password
-zurb-foundation
 font-awesome
 scss
+foundation5-sass

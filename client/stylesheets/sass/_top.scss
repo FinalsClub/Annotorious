@@ -1,0 +1,14 @@
+@import 'palette';
+
+/*
+ Foundation variables for the top bar
+ http://foundation.zurb.com/docs/components/offcanvas.html
+ */
+$tabbar-bg: $theme4_bg;
+$tabbar-header-color: $theme4_fg;
+
+$tabbar-middle-padding: 0 50%; /* center the title */
+$tabbar-header-weight: normal;
+
+$tabbar-menu-icon-color: $theme4_fg;
+$tabbar-left-section-border: none;

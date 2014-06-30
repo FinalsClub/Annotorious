@@ -1,7 +1,12 @@
 @import 'palette';
 @import 'welcome';
+@import 'tray';
+@import 'top';
 
 body {
-  color: $black;
-  background-color: $white;
+  color: $theme1_fg;
+  background-color: $theme1_bg;
 }
+
+/* this must be imported last or else none of custom foundation vars work */
+@import "packages/foundation5-sass/foundation";

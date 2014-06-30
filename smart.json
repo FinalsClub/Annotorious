@@ -3,8 +3,8 @@
     "simple-schema": {},
     "autoform": {},
     "iron-router": {},
-    "zurb-foundation": {},
     "font-awesome": {},
-    "scss": {}
+    "scss": {},
+    "foundation5-sass": {}
   }
 }

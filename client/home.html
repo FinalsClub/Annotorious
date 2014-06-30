@@ -2,9 +2,6 @@
   <title>Annotorious</title>
 </head>
 
-<body>
-</body>
-
 <template name="top_and_side">
   <div class="off-canvas-wrap" data-offcanvas>
     <div class="inner-wrap">
@@ -21,7 +18,7 @@
       </nav>
 
       <aside class="left-off-canvas-menu">
-        <ul class="off-campus-list">
+        <ul class="off-canvas-list">
           {{> which_menu }}
         </ul>
       </aside>
@@ -31,6 +28,7 @@
       </section>
     </div>
   </div>
+  {{ initFoundation }}
 </template>
 
 <template name="signed_in_menu">

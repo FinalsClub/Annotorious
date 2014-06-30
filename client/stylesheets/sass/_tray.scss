@@ -1,0 +1,16 @@
+@import 'palette';
+
+.off-canvas-wrap {
+  min-height: 500px;
+}
+
+/*
+ Foundation variables for the side panel
+ http://foundation.zurb.com/docs/components/offcanvas.html
+ */
+$off-canvas-width: 12em;
+
+$off-canvas-link-color: $theme2_fg;
+$off-canvas-bg: $theme2_bg;
+
+$off-canvas-link-border-bottom: none;

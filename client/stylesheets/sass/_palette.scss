@@ -1,7 +1,33 @@
 /* palette in one place, thanks SCSS */
+
+/* color constants */
 $orange: #e67e22;
 $white: #fff;
 $black: #000;
 $cyan: #16a085;
-$ltgray: #8c8c8c;
+$ltgray: #f5f5f5;
+$mdgray: #8c8c8c;
 $dkgray: #333;
+
+/*
+ Given Perry's designs, themes are generally foreground, background, and
+ some highlight.
+ */
+
+/* theme one: most pages */
+$theme1_fg: $mdgray;
+$theme1_bg: $white;
+$theme1_hl: $cyan;
+
+/* theme four: top panel */
+$theme4_fg: $mdgray;
+$theme4_bg: $ltgray;
+
+/* theme two: side tray */
+$theme2_fg: $white;
+$theme2_bg: $dkgray;
+$theme2_hl: $cyan;
+
+/* theme three: welcome */
+$theme3_fg: $white;
+$theme3_bg: $orange;
