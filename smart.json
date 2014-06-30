@@ -4,6 +4,7 @@
     "autoform": {},
     "iron-router": {},
     "zurb-foundation": {},
-    "font-awesome": {}
+    "font-awesome": {},
+    "scss": {}
   }
 }

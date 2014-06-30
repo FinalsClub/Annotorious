@@ -1,0 +1,54 @@
+@import 'helpers';
+@import 'palette';
+
+div#welcome_body {
+  color: $white;
+  background-color: $orange;
+  text-align: center;
+  height: 100%;
+
+  hr {
+    width: 26em;
+    display: inline-block;
+  }
+
+  a {
+    color: $white;
+    font-weight: bold;
+  }
+}
+#welcome_header_logo {
+  padding: 16px 0px;
+}
+#welcome_header_project {
+  font-size-adjust: 1.25;
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+}
+ul.blurb {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 26em;
+
+  li {
+    list-style-type: none;
+    list-style-image: none;
+
+    i {
+      width: 1.5em;
+    }
+  }
+}
+div#explore_annotorious {
+  color: $orange;
+  background-color: $white;
+  @include border-radius(0.5em);
+  margin: 0em auto 1em auto;
+  padding: 0.75em;
+  width: 12em;
+
+  a {
+    color: $orange;
+  }
+}
