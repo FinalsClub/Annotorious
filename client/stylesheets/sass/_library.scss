@@ -21,3 +21,31 @@
     padding: 0.25em 0em;
   }
 }
+
+/* small hack to stretch the bar outside main-content */
+nav.top-bar {
+  right: $main_margin;
+  bottom: $main_margin;
+  margin-right: -2*$main_margin;
+}
+
+/* messes up when given ems
+$topbar-height: 2em;
+*/
+$topbar-margin-bottom: 1em;
+/* bar background */
+$topbar-bg: $theme2_bg;
+/* arrow */
+$topbar-dropdown-toggle-color: $theme2_fg;
+$topbar-dropdown-toggle-alpha: 1.0;
+/* all anchors */
+$topbar-link-bg: $theme2_bg;
+/* doesn't matter since height is jacked
+$topbar-link-font-size: small;
+*/
+/* only topbar anchors */
+$topbar-link-color: $theme2_fg;
+/* hovering all anchors */
+$topbar-link-bg-hover: $theme2_hl;
+/* only dropdown anchors */
+$topbar-dropdown-link-color: $theme2_fg;

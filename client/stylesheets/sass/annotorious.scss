@@ -1,17 +1,19 @@
 @import 'palette';
-@import 'welcome';
-@import 'tray';
-@import 'top';
-@import 'library';
 
 body {
   color: $theme1_fg;
   background-color: $theme1_bg;
 }
 
+$main_margin: 0.5em;
 .main-section {
-  margin: 0.5em;
+  margin: $main_margin;
 }
+
+@import 'welcome';
+@import 'tray';
+@import 'top';
+@import 'library';
 
 /* this must be imported last or else none of custom foundation vars work */
 @import "packages/foundation5-sass/foundation";

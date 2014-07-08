@@ -1,6 +1,23 @@
 <!-- LIBRARY PAGE -->
 
 <template name="library">
+  <nav class="top-bar" data-topbar>
+    <section class="top-bar-section">
+      <ul class="left">
+        <li class="has-dropdown"><a href="#">Sort</a>
+          <ul class="dropdown">
+            <li><a href="#" id="sort-title">Title (A-Z)</a></li>
+            <li><a href="#" id="sort-annos">Annotations (most to least)</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown"><a href="#">Filter</a>
+          <ul class="dropdown">
+            <li><a href="#">bwop bwop nothing here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </nav>
   {{>library}}
 </template>
 
