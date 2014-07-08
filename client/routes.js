@@ -21,21 +21,18 @@ Router.map(function() {
     }
   });
 
-  var paths = Object.keys(welcome_routes);
-  for (var idx in paths) {
-    var key = paths[idx];
-    this.route(welcome_routes[key], {
-        path: key,
+  var self = this;
+  _.chain(welcome_routes).keys().each(function(path) {
+    self.route(welcome_routes[path], {
+        path: path,
         layoutTemplate: 'welcome'
     });
-  }
+  });
 
-  var paths = Object.keys(top_and_side_routes);
-  for (var idx in paths) {
-    var key = paths[idx];
-    this.route(top_and_side_routes[key], {
-        path: key,
+  _.chain(top_and_side_routes).keys().each(function(path) {
+    self.route(top_and_side_routes[path], {
+        path: path,
         layoutTemplate: 'top_and_side'
     });
-  }
+  });
 });
