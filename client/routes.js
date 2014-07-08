@@ -4,7 +4,6 @@ Router.map(function() {
   // This seems nicer in a config file than hard coding it here.
   // Pull this from routes.js
   var welcome_routes = {
-    "/": "welcome_blurb",
     "/welcome": "welcome_blurb",
     "/login": "login",
     "/register": "register"
@@ -14,6 +13,13 @@ Router.map(function() {
     "/about": "about",
     "/library": "library"
   };
+
+  this.route('root', {
+    path: '/',
+    action: function() {
+      Router.go('welcome_blurb');
+    }
+  });
 
   var paths = Object.keys(welcome_routes);
   for (var idx in paths) {
