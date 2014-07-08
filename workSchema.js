@@ -9,7 +9,7 @@ SectionContents = new Meteor.Collection("sectionContents", {
 
 Annotations = new Meteor.Collection("annotations", {
   content_id: {
-    type: Meteor.Collection.ObjectId
+    type: Meteor.Collection.ObjectID
   },
   annotation: {
     type: Object,
@@ -36,7 +36,7 @@ Section = new SimpleSchema({
     }
   },
   content: {
-    type: Meteor.Collection.ObjectId,
+    type: Meteor.Collection.ObjectID,
     optional: true
   }
 });
