@@ -1,0 +1,23 @@
+@import 'palette';
+
+.work {
+  background-color: $theme5_bg;
+  margin-top: 0.75em;
+  padding-bottom: 0.75em;
+  border-bottom: 1px solid $theme5_ut;
+
+  .work-title {
+    color: $theme5_hl;
+    font-size: large;
+    padding: 0.25em 0em;
+  }
+  .work-author {
+    color: $theme5_fg;
+    padding: 0.25em 0em;
+  }
+  .work-summary {
+    color: $theme5_ut;
+    font-size: small;
+    padding: 0.25em 0em;
+  }
+}

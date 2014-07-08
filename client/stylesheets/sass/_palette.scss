@@ -10,14 +10,20 @@ $mdgray: #8c8c8c;
 $dkgray: #333;
 
 /*
- Given Perry's designs, themes are generally foreground, background, and
- some highlight.
+ Given Perry's designs, themes are generally foreground, background,
+ some highlight, and sometimes an undertone.
  */
 
 /* theme one: most pages */
 $theme1_fg: $mdgray;
 $theme1_bg: $white;
 $theme1_hl: $cyan;
+
+/* theme five: library/work pages */
+$theme5_fg: $black;
+$theme5_bg: $white;
+$theme5_hl: $cyan;
+$theme5_ut: $dkgray;
 
 /* theme four: top panel */
 $theme4_fg: $mdgray;

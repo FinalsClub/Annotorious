@@ -1,5 +1,25 @@
 <!-- LIBRARY PAGE -->
 
 <template name="library">
-  replace this with an interface to the collection
+  {{>library}}
+</template>
+
+<template name="library_list">
+  {{#each get_works}}
+    <div class="work">{{> work }}</div>
+  {{/each}}
+</template>
+
+<template name="library_grid">
+  <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3" data-equalizer>
+    {{#each get_works}}
+      <li class="work" data-equalizer-watch>{{> work }}</li>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="work">
+  <div class="work-title">{{title}}</div>
+  <div class="work-author">{{author}}</div>
+  <div class="work-summary">{{summary}}</div>
 </template>
