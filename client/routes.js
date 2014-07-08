@@ -4,14 +4,14 @@ Router.map(function() {
   // This seems nicer in a config file than hard coding it here.
   // Pull this from routes.js
   var welcome_routes = {
-    "/welcome": "welcome_blurb",
-    "/login": "login",
-    "/register": "register"
+    welcome_blurb: "/welcome",
+    login: "/login",
+    register: "/register"
   };
 
   var top_and_side_routes = {
-    "/about": "about",
-    "/library": "library"
+    about: "/about",
+    library: "/library"
   };
 
   this.route('root', {
@@ -22,16 +22,16 @@ Router.map(function() {
   });
 
   var self = this;
-  _.chain(welcome_routes).keys().each(function(path) {
-    self.route(welcome_routes[path], {
-        path: path,
+  _.chain(welcome_routes).keys().each(function(name) {
+    self.route(name, {
+        path: welcome_routes[name],
         layoutTemplate: 'welcome'
     });
   });
 
-  _.chain(top_and_side_routes).keys().each(function(path) {
-    self.route(top_and_side_routes[path], {
-        path: path,
+  _.chain(top_and_side_routes).keys().each(function(name) {
+    self.route(name, {
+        path: top_and_side_routes[name],
         layoutTemplate: 'top_and_side'
     });
   });
