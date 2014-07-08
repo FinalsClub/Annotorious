@@ -8,5 +8,9 @@ body {
   background-color: $theme1_bg;
 }
 
+.main-section {
+  margin: 0.5em;
+}
+
 /* this must be imported last or else none of custom foundation vars work */
 @import "packages/foundation5-sass/foundation";
