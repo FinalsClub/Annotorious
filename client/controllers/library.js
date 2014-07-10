@@ -1,9 +1,9 @@
 if (Meteor.isClient) {
 
   var get_works = function() {
-    var query_opts = {};
+    var mongo_selector = {};
     var find_opts = { fields: { title: 1, author: 1, summary: 1 } };
-    var work_array = Works.find(query_opts, find_opts).map(modify_works);
+    var work_array = Works.find(mongo_selector, find_opts).map(modify_works);
     /* have to switch to long form due to variable key */
     return work_array.sort(sort_works);
   }
