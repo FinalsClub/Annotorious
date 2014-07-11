@@ -24,15 +24,15 @@ Router.map(function() {
   var self = this;
   _.chain(welcome_routes).keys().each(function(name) {
     self.route(name, {
-        path: welcome_routes[name],
-        layoutTemplate: 'welcome'
+      path: welcome_routes[name],
+      layoutTemplate: 'welcome'
     });
   });
 
   _.chain(top_and_side_routes).keys().each(function(name) {
     self.route(name, {
-        path: top_and_side_routes[name],
-        layoutTemplate: 'top_and_side'
+      path: top_and_side_routes[name],
+      layoutTemplate: 'top_and_side'
     });
   });
 });
