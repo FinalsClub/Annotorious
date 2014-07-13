@@ -33,6 +33,16 @@ $block-grid-default-spacing: 0;
   margin-right: $work-horizontal-spacing;
 }
 
+// Library-specific work styles
+#library .work {
+  white-space: nowrap;
+
+  & > * {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 // Override Foundation stuff
 ul#library {
   line-height: inherit;
