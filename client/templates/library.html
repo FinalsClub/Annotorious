@@ -18,25 +18,17 @@
       </ul>
     </section>
   </nav>
-  {{>library}}
-</template>
-
-<template name="library_list">
-  {{#each get_works}}
-    <div class="work">{{> work }}</div>
-  {{/each}}
-</template>
-
-<template name="library_grid">
-  <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+  <ul id="library" class="{{grid_classes}}">
     {{#each get_works}}
-      <li class="work">{{> work }}</li>
+      <li>{{> work }}</li>
     {{/each}}
   </ul>
 </template>
 
 <template name="work">
-  <div class="work-title">{{title}}</div>
-  <div class="work-author">{{author}}</div>
-  <div class="work-summary">{{summary}}</div>
+  <div class="work">
+    <div class="work-title">{{title}}</div>
+    <div class="work-author">{{author}}</div>
+    <div class="work-summary">{{summary}}</div>
+  </div>
 </template>

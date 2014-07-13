@@ -24,6 +24,13 @@ $block-grid-default-spacing: 0;
   }
 }
 
+// Override Foundation stuff
+ul#library {
+  line-height: inherit;
+  list-style: none;
+  margin: 0;
+}
+
 /* messes up when given ems
 $topbar-height: 2em;
 */
