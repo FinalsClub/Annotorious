@@ -5,11 +5,6 @@ body {
   background-color: $theme1_bg;
 }
 
-$main_margin: 0.5em;
-.main-section {
-  margin: $main_margin;
-}
-
 @import 'welcome';
 @import 'tray';
 @import 'top';

@@ -1,38 +1,32 @@
 @import 'palette';
 
+$work-horizontal-spacing: 0.5em;
+$block-grid-default-spacing: 0;
 .work {
   background-color: $theme5_bg;
-  margin-top: 0.75em;
-  padding-bottom: 0.75em;
+  padding: 1em $work-horizontal-spacing;
   border-bottom: 1px solid $theme5_ut;
+
+  & > * {
+    padding-bottom: 0.25em;
+  }
 
   .work-title {
     color: $theme5_hl;
     font-size: large;
-    padding: 0.25em 0em;
   }
   .work-author {
     color: $theme5_fg;
-    padding: 0.25em 0em;
   }
   .work-summary {
     color: $theme5_ut;
     font-size: small;
-    padding: 0.25em 0em;
   }
-}
-
-/* small hack to stretch the bar outside main-content */
-nav.top-bar {
-  right: $main_margin;
-  bottom: $main_margin;
-  margin-right: -2*$main_margin;
 }
 
 /* messes up when given ems
 $topbar-height: 2em;
 */
-$topbar-margin-bottom: 1em;
 /* bar background */
 $topbar-bg: $theme2_bg;
 /* arrow */
