@@ -24,6 +24,15 @@ $block-grid-default-spacing: 0;
   }
 }
 
+// Style changes for grid mode
+#library.grid .work {
+  padding-left: 0;
+  padding-right: 0;
+
+  margin-left: $work-horizontal-spacing;
+  margin-right: $work-horizontal-spacing;
+}
+
 // Override Foundation stuff
 ul#library {
   line-height: inherit;

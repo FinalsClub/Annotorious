@@ -7,7 +7,7 @@ if (Meteor.isClient) {
 
   Template.library.grid_classes = function() {
     if (Session.equals('library-mode', 'grid')) {
-      return 'small-block-grid-1 medium-block-grid-2 large-block-grid-3'
+      return 'grid small-block-grid-1 medium-block-grid-2 large-block-grid-3'
     } else  {
       return '';
     }
