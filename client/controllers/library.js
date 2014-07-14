@@ -2,7 +2,14 @@ if (Meteor.isClient) {
 
   Template.library.get_works = function() {
     /* TODO support {sort: [blah]} */
-    return Works.find({}, { fields: { title: 1, author: 1, summary: 1 } });
+    return Works.find({}, {
+      fields: {
+        title: 1,
+        author: 1,
+        summary: 1,
+        annotationsCount: 1
+      }
+    });
   }
 
   Template.library.grid_classes = function() {

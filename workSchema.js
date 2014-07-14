@@ -85,6 +85,11 @@ Works = new Meteor.Collection("works", {
         }
       }
     },
+    annotationsCount: {
+      type: Number,
+      label: "Number of annotations",
+      defaultValue: 0
+    },
     sections: {
       type: [Section],
       optional: true
