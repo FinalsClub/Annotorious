@@ -1,7 +1,22 @@
 if (Meteor.isClient) {
 
   Template.library.get_works = function() {
-    /* TODO support {sort: [blah]} */
+    var sortby = Session.get('library-sort'),
+        sort_spec = ['title'],
+        sort_add = null;
+
+    if (sortby === 'annos') {
+      sort_add = ['annotationsCount', 'desc'];
+    } else if (sortby === 'author') {
+      sort_add = 'author';
+    } else if (sortby === 'year') {
+      sort_add = ['year', 'desc'];
+    }
+
+    if (sort_add !== null) {
+      sort_spec.unshift(sort_add)
+    }
+
     return Works.find({}, {
       fields: {
         title: 1,
@@ -9,7 +24,8 @@ if (Meteor.isClient) {
         summary: 1,
         annotationsCount: 1,
         year: 1
-      }
+      },
+      sort: sort_spec
     });
   }
 
