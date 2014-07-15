@@ -5,6 +5,7 @@
     "iron-router": {},
     "font-awesome": {},
     "scss": {},
-    "foundation5-sass": {}
+    "foundation5-sass": {},
+    "urlify2": {}
   }
 }
