@@ -45,6 +45,11 @@ if (Meteor.isClient) {
     }
   }
 
+  Template.work.my_item_mark = function() {
+    if (Meteor.userId() === null) return "hide";
+    return "fa fa-star-o"
+  }
+
   Template.work.published = function() {
     if (this.year !== null) {
       return ', ' + this.year.toString();
