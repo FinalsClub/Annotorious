@@ -10,14 +10,21 @@ Router.map(function() {
   };
 
   var top_and_side_routes = {
-    about: "/about",
-    library: "/library"
+    about: "/about"
   };
 
   this.route('root', {
     path: '/',
     action: function() {
       Router.go('welcome_blurb');
+    }
+  });
+
+  this.route('library', {
+    path: '/library',
+    layoutTemplate: 'top_and_side',
+    waitOn: function() {
+      return Meteor.subscribe('works');
     }
   });
 
