@@ -6,9 +6,16 @@ $block-grid-default-spacing: 0;
   background-color: $theme5_bg;
   padding: 1em $work-horizontal-spacing;
   border-bottom: 1px solid $theme5_ut;
+  display: flex;
 
-  & > * {
-    padding-bottom: 0.25em;
+  .image {
+    flex: 0 0 50px;
+  }
+
+  .metadata {
+    & > * {
+      padding-bottom: 0.25em;
+    }
   }
 
   .work-annotations {
@@ -38,7 +45,7 @@ $block-grid-default-spacing: 0;
 }
 
 // Library-specific work styles
-#library .work {
+#library .metadata {
   white-space: nowrap;
 
   & > * {
