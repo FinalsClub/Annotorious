@@ -1,21 +1,7 @@
 if (Meteor.isClient) {
 
   Template.library.get_works = function() {
-    var sortby = Session.get('library-sort'),
-        sort_spec = ['title'],
-        sort_add = null;
-
-    if (sortby === 'annos') {
-      sort_add = ['annotationsCount', 'desc'];
-    } else if (sortby === 'author') {
-      sort_add = 'author';
-    } else if (sortby === 'year') {
-      sort_add = ['year', 'desc'];
-    }
-
-    if (sort_add !== null) {
-      sort_spec.unshift(sort_add)
-    }
+    Session.setDefault('library-sort', ['title']);
 
     return Works.find({}, {
       fields: {
@@ -25,9 +11,24 @@ if (Meteor.isClient) {
         annotationsCount: 1,
         year: 1
       },
-      sort: sort_spec
+      sort: Session.get('library-sort')
     });
   }
+
+  Template.library.events({
+    'click #sort-title': function(event) {
+      Session.set('library-sort', ['title']);
+    },
+    'click #sort-annos': function(event) {
+      Session.set('library-sort', [['annotationsCount','desc'], 'title']);
+    },
+    'click #sort-author': function(event) {
+      Session.set('library-sort', ['author', 'title']);
+    },
+    'click #sort-date': function(event) {
+      Session.set('library-sort', [['year','desc'], 'title']);
+    }
+  });
 
   Template.library.grid_classes = function() {
     if (Session.equals('library-mode', 'grid')) {
