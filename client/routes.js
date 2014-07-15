@@ -21,7 +21,7 @@ Router.map(function() {
   });
 
   this.route('library', {
-    path: '/library',
+    path: '/library/:id?/:slug?',
     layoutTemplate: 'top_and_side',
     waitOn: function() {
       return Meteor.subscribe('works');

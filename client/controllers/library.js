@@ -46,4 +46,11 @@ if (Meteor.isClient) {
     }
   }
 
+  Template.work.events({
+    'click': function(event) {
+      var slug = URLify2(this.title + '-' + this.author);
+      Router.go('library', { id: this._id.toHexString(), slug: slug });
+    }
+  });
+
 }
