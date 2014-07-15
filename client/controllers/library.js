@@ -27,6 +27,13 @@ if (Meteor.isClient) {
     },
     'click #sort-date': function(event) {
       Session.set('library-sort', [['year','desc'], 'title']);
+    },
+    'click #library-mode-toggle': function(event) {
+      if (Session.equals('library-mode', 'grid')) {
+        Session.set('library-mode', 'list');
+      } else {
+        Session.set('library-mode', 'grid');
+      }
     }
   });
 
