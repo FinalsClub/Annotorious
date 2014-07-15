@@ -46,6 +46,14 @@ if (Meteor.isClient) {
     }
   }
 
+  Template.work.work_classes = function() {
+    if (Router.current().params.id === this._id.toHexString()) {
+      return 'selected';
+    } else {
+      return '';
+    }
+  }
+
   Template.work.events({
     'click': function(event) {
       var slug = URLify2(this.title + '-' + this.author);

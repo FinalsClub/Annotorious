@@ -3,6 +3,7 @@
 $work-horizontal-spacing: 0.5em;
 $block-grid-default-spacing: 0;
 .work {
+  cursor: pointer;
   background-color: $theme5_bg;
   padding: 1em $work-horizontal-spacing;
   border-bottom: 1px solid $theme5_ut;
@@ -26,6 +27,11 @@ $block-grid-default-spacing: 0;
     color: $theme5_ut;
     font-size: small;
   }
+}
+
+.work.selected {
+  cursor: inherit;
+  background-color: #ebebeb;
 }
 
 // Style changes for grid mode
