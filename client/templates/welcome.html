@@ -49,22 +49,55 @@
 
 <template name="login">
  <form id="login-form" action="action">
-    <div>
-      <input type="email" id="login-email" />
-      <input type="password" id="login-password" />
-      <input type="submit" id="login-button" value="Sign in" />
-   </div>
+ 
+  <div class="row">
+    <div class="small-5 small-centered columns">
+    <input type="email" id="login-email" placeholder="Email"/>
+    </div>
+  </div>
+ 
+  <div class="row">
+    <div class="small-5 small-centered columns">
+    <input type="password" id="login-password" placeholder="Password"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-2 small-centered columns">
+    <input type="submit" id="login-button" value="Sign in"/>
+    </div>
+  </div>
  </form> 
  <a id="resetPassword">Reset Password</a>
 </template>
 
+
 <template name="register">
   <form id="register-form" action="action">
-    <div>
-      <label>Username: </label><input type="username" id="account-username" />
-      <label>Email: </label><input type="email" id="account-email" />
-      <label>Password: </label><input type="password" id="account-password" />
+
+    <div class="row">
+      <div class="small-5 small-centered columns">
+      <input type="text" id="account-username" placeholder="Username"/>
+      <!--input type should be "username" but it is styled from a mysterious unknown location-->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-5 small-centered columns">
+      <input type="email" id="account-email" placeholder="Email"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-5 small-centered columns">
+      <input type="password" id="account-password" placeholder="Password"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-2 small-centered columns">
       <input type="submit" id="create-account" value="Create an Account" />
+      </div>
     </div>
   </form>
 </template>
