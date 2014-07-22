@@ -51,7 +51,7 @@ if (Meteor.isClient) {
   Template.work.events({
     'click': function(event) {
       /* load first content section for the selected work */
-      var cid = preorderDFSwork(Works.findOne({_id: this._id}));
+      var cid = preorderDFSwork(Works.findOne(this._id));
       Router.go('readingview', {_id: cid.toHexString()});
     },
   });
