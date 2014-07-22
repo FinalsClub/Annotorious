@@ -1,5 +1,7 @@
 <!-- READING VIEW -->
 
 <template name="readingview">
-  {{> get_section_content }}
+  {{#with get_section }}
+    {{{ html }}}
+  {{/with}}
 </template>
