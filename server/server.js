@@ -6,4 +6,8 @@ if (Meteor.isServer) {
   Meteor.publish('works', function() {
     return Works.find();
   });
+
+  Meteor.publish('sectioncontents', function() {
+    return SectionContents.find();
+  });
 }
