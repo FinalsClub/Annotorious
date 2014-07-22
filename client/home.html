@@ -36,14 +36,24 @@
   {{> librarylink }}
   <li><a href="#"><i class="fa fa-star"></i> My Items</a></li>
   <li><a href="#"><i class="fa fa-sliders"></i> Settings</a></li>
+  {{> readingmenu }}
   {{> aboutlink }}
   <li><a href="#">Log out</a></li>
 </template>
 
 <template name="signed_out_menu">
   {{> librarylink }}
+  {{> readingmenu }}
   {{> aboutlink }}
   <li><a href="/welcome">Log in</a></li>
+</template>
+
+<template name="readingmenu">
+  {{#if show_reading_menu }}
+    <li><a href="#">Chapter</a></li>
+    <li><a href="#">Annotations</a></li>
+    <li><a href="#">Type</a></li>
+  {{/if}}
 </template>
 
 <template name="librarylink">

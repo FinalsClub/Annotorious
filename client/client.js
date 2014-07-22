@@ -15,4 +15,10 @@ if (Meteor.isClient) {
     }
   }
 
+  /* conditionally show the reading menu on the reading view page */
+  Template.readingmenu.show_reading_menu = function () {
+    var current = Router.current();
+    return current && current.route && current.route.name === 'readingview';
+  }
+
 }
