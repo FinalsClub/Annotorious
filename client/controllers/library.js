@@ -15,6 +15,17 @@ if (Meteor.isClient) {
     });
   }
 
+  var preorderDFSwork = function(work) {
+    return preorderDFSsections(work.sections[0]);
+  }
+
+  var preorderDFSsections = function(section) {
+    /* depth first search, pre-order, to find first content for the section  */
+    var cid = section.content_id;
+    if (cid === undefined) return preorderDFSsections(section.subSections[0]);
+    else return cid;
+  }
+
   Template.library.events({
     'click #sort-title': function(event) {
       Session.set('library-sort', ['title']);
@@ -34,7 +45,15 @@ if (Meteor.isClient) {
       } else {
         Session.set('library-mode', 'grid');
       }
-    }
+    },
+  });
+
+  Template.work.events({
+    'click': function(event) {
+      /* load first content section for the selected work */
+      var cid = preorderDFSwork(Works.findOne({_id: this._id}));
+      Router.go('readingview', {_id: cid._str});
+    },
   });
 
   Template.library.grid_classes = function() {

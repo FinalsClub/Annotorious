@@ -28,6 +28,14 @@ Router.map(function() {
     }
   });
 
+  this.route('readingview', {
+    path: '/view/:_id',
+    layoutTemplate: 'top_and_side',
+    waitOn: function() {
+      return Meteor.subscribe('sectioncontents');
+    }
+  });
+
   var self = this;
   _.chain(welcome_routes).keys().each(function(name) {
     self.route(name, {
