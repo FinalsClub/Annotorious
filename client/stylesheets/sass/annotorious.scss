@@ -9,6 +9,7 @@ body {
 @import 'tray';
 @import 'top';
 @import 'library';
+@import 'readingview';
 
 /* this must be imported last or else none of custom foundation vars work */
 @import "packages/foundation5-sass/foundation";
