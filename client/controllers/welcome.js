@@ -62,7 +62,7 @@ Template.register.events({
       Accounts.createUser({username: username, email: email, password: password}, 
       function(err) {
         if (err) {
-          alert('Account creation failed, please try again')
+          alert('Account creation failed, please try again: ' + err.reason)
         } else {
           Router.go('/library');
         }
