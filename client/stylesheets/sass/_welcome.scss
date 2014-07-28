@@ -16,15 +16,32 @@
     color: $theme3_fg;
     font-weight: bold;
   }
+
+  #welcome_header_logo {
+    padding: 16px 0px;
+  }
+
+  #welcome_header_project {
+    font-size-adjust: 1.25;
+    padding-top: 1em;
+    padding-bottom: 1.5em;
+  }
+
+  #explore_annotorious {
+    /* invert colors */
+    color: $theme3_bg;
+    background-color: $theme3_fg;
+    @include border-radius(0.5em);
+    margin: 0em auto 1em auto;
+    padding: 0.75em;
+    width: 12em;
+
+    a {
+      color: $theme3_bg;
+    }
+  }
 }
-#welcome_header_logo {
-  padding: 16px 0px;
-}
-#welcome_header_project {
-  font-size-adjust: 1.25;
-  padding-top: 1em;
-  padding-bottom: 1.5em;
-}
+
 ul#blurb {
   text-align: left;
   margin-left: auto;
@@ -38,18 +55,5 @@ ul#blurb {
     i {
       width: 1.5em;
     }
-  }
-}
-#explore_annotorious {
-  /* invert colors */
-  color: $theme3_bg;
-  background-color: $theme3_fg;
-  @include border-radius(0.5em);
-  margin: 0em auto 1em auto;
-  padding: 0.75em;
-  width: 12em;
-
-  a {
-    color: $theme3_bg;
   }
 }
