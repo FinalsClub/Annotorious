@@ -1,7 +1,7 @@
 @import 'helpers';
 @import 'palette';
 
-div#welcome_body {
+#welcome_body {
   color: $theme3_fg;
   background-color: $theme3_bg;
   text-align: center;
@@ -40,7 +40,7 @@ ul.blurb {
     }
   }
 }
-div#explore_annotorious {
+#explore_annotorious {
   /* invert colors */
   color: $theme3_bg;
   background-color: $theme3_fg;
