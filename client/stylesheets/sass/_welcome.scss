@@ -1,6 +1,6 @@
 @import 'palette';
 
-div#welcome_body {
+#welcome_body {
   color: $theme3_fg;
   background-color: $theme3_bg;
   text-align: center;
@@ -35,7 +35,7 @@ ul.blurb {
     width: 1.5em;
   }
 }
-div#explore_library {
+#explore_library {
   /* invert colors */
   color: $theme3_bg;
   background-color: $theme3_fg;
