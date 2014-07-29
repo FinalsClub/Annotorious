@@ -32,7 +32,9 @@ Router.map(function() {
     path: '/view/:_id',
     layoutTemplate: 'top_and_side',
     waitOn: function() {
-      return Meteor.subscribe('sectioncontents');
+      var id = new Meteor.Collection.ObjectID(this.params._id);
+
+      return Meteor.subscribe('sectionview', id);
     }
   });
 

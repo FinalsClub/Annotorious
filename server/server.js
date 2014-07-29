@@ -7,7 +7,10 @@ if (Meteor.isServer) {
     return Works.find();
   });
 
-  Meteor.publish('sectioncontents', function() {
-    return SectionContents.find();
+  Meteor.publish('sectionview', function(content_id) {
+    var content = SectionContents.find(content_id),
+        annotations = Annotations.find({ content_id: content_id });
+
+    return [content, annotations];
   });
 }
