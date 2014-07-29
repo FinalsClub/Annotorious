@@ -27,6 +27,18 @@
     padding-bottom: 1.5em;
   }
 
+  ul#blurb {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 26em;
+    list-style: none;
+
+    li i {
+      width: 1.5em;
+    }
+  }
+
   #explore_annotorious {
     /* invert colors */
     color: $theme3_bg;
@@ -39,17 +51,5 @@
     a {
       color: $theme3_bg;
     }
-  }
-}
-
-ul#blurb {
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-  width: 26em;
-  list-style: none;
-
-  li i {
-    width: 1.5em;
   }
 }
