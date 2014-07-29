@@ -8,10 +8,8 @@
   min-height: 100%;
 
   #welcome_content {
-    hr {
-      width: 26em;
-      display: inline-block;
-    }
+    width: 26em;
+    margin: 0 auto;
 
     a {
       color: $theme3_fg;
@@ -32,9 +30,7 @@
 
     ul#blurb {
       text-align: left;
-      margin-left: auto;
-      margin-right: auto;
-      width: 26em;
+      margin-left: 0;
       list-style: none;
 
       li i {
@@ -45,9 +41,10 @@
     #welcome_links {
       #explore_annotorious {
         /* invert colors */
+        display: inline-block;
         background-color: $theme3_fg;
         @include border-radius(0.5em);
-        margin: 0em auto 1em auto;
+        margin-bottom: 1em;
         padding: 0.75em;
         width: 12em;
 
