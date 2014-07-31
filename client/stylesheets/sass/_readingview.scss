@@ -1,5 +1,45 @@
 @import 'palette';
 
-.content {
-  margin: 1em 25%;
+.show-panel {
+  #side-panel-wrap {
+    width: 25%;
+  }
+
+  #content-wrap {
+    width: 75%;
+  }
+}
+
+.hide-panel {
+  #side-panel-wrap {
+    width: 0%;
+  }
+
+  #content-wrap {
+    width: 100%;
+  }
+}
+
+#panel-selector {
+  font-size: 0em;
+
+  #side-panel-wrap {
+    vertical-align: top;
+    overflow: hidden;
+
+    #side-panel-content {
+      min-width: 25%;
+    }
+  }
+
+  #side-panel-wrap, #content-wrap {
+    font-size: 1rem;
+    display: inline-block;
+    transition: width 1s ease;
+  }
+}
+
+#content {
+  width: 75%;
+  margin: 1em auto;
 }

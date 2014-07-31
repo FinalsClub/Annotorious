@@ -1,9 +1,33 @@
 <!-- READING VIEW -->
 
 <template name="readingview">
-  <div class="content">
-  {{#with get_section }}
-    {{{ html }}}
-  {{/with}}
+  <div id="panel-selector" class="{{get_panel_visible}}">
+    <div id="side-panel-wrap">
+      <div id="side-panel-content">
+        {{> get_panel_contents}}
+      </div>
+    </div>
+    <div id="content-wrap">
+      <div id="content">
+        {{#with get_section }}
+          {{{ html }}}
+        {{/with}}
+      </div>
+    </div>
   </div>
+</template>
+
+<template name="table_of_contents_panel">
+ToC placeholder<br />
+ToC placeholder<br />
+</template>
+
+<template name="annotation_list_panel">
+annotations placeholder<br />
+annotations placeholder<br />
+</template>
+
+<template name="type_panel">
+type placeholder<br />
+type placeholder<br />
 </template>
