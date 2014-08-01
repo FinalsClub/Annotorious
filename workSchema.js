@@ -1,6 +1,9 @@
 
 SectionContents = new Meteor.Collection("sectionContents", {
   schema: {
+    work_id: {
+      type: Meteor.Collection.ObjectID
+    },
     html: {
       type: String
     }
@@ -35,7 +38,7 @@ Section = new SimpleSchema({
       })
     }
   },
-  content: {
+  content_id: {
     type: Meteor.Collection.ObjectID,
     optional: true
   }
