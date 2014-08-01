@@ -17,9 +17,27 @@
   </div>
 </template>
 
+<template name="sections">
+  <ul>
+    {{#each this}}
+      <li>
+        {{#if content_id}}
+          <a href="{{pathFor 'readingview' _id=content_id.toHexString}}">{{name}}</a>
+        {{else}}
+          {{name}}
+        {{/if}}
+      </li>
+      {{#if subSections}}
+        <li>{{> sections subSections}}</li>
+      {{/if}}
+    {{/each}}
+  </ul>
+</template>
+
 <template name="table_of_contents_panel">
-ToC placeholder<br />
-ToC placeholder<br />
+  <div id="table-of-contents">
+    {{> sections }}
+  </div>
 </template>
 
 <template name="annotation_list_panel">

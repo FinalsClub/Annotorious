@@ -9,8 +9,9 @@ if (Meteor.isServer) {
 
   Meteor.publish('sectionview', function(content_id) {
     var content = SectionContents.find(content_id),
-        annotations = Annotations.find({ content_id: content_id });
+        annotations = Annotations.find({ content_id: content_id }),
+        work = Works.find(content.fetch()[0].work_id);
 
-    return [content, annotations];
+    return [content, annotations, work];
   });
 }

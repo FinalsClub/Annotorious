@@ -29,6 +29,10 @@
 
     #side-panel-content {
       min-width: 25%;
+
+      #table-of-contents ul {
+        list-style: none;
+      }
     }
   }
 

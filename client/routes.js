@@ -35,6 +35,11 @@ Router.map(function() {
       var id = new Meteor.Collection.ObjectID(this.params._id);
 
       return Meteor.subscribe('sectionview', id);
+    },
+    data: function() {
+      var id = new Meteor.Collection.ObjectID(this.params._id);
+      var work_id = SectionContents.findOne(id).work_id;
+      return Works.findOne(work_id).sections;
     }
   });
 
