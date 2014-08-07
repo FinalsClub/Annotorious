@@ -1,0 +1,75 @@
+@import 'palette';
+
+#outer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
+  & > #header {
+    flex: none;
+    line-height: 3em;
+    background-color: blue;
+    color: $theme4_fg;
+    background-color: $theme4_bg;
+    position: relative;
+
+    & > #menubutton > i {
+      font-size: 1.5em;
+      padding: 0 0.5em;
+      cursor: pointer;
+      line-height: inherit;
+      position: absolute;
+    }
+
+    & > #title {
+      text-align: center;
+      font-size: 1.1em;
+    }
+  }
+
+  & > #inner {
+    display: flex;
+    flex: auto;
+
+    $expanded-width: 12em;
+    & > #sidebar {
+      overflow: hidden;
+      flex: 0 0 0;
+      transition: flex-basis 500ms ease;
+      position: relative;
+      color: $theme2_fg;
+      background-color: $theme2_bg;
+
+      a {
+        color: $theme2_fg;
+      }
+
+      & > #sidebar-content {
+        position: absolute;
+        width: $expanded-width;
+        height: 100%;
+        right: 0;
+
+        & > li > a {
+          padding: 0.75em;
+          display: block;
+          transition: background-color 300ms ease;
+
+          &:hover {
+            background-color: $theme2_hl;
+          }
+        }
+      }
+    }
+
+    & > #sidebar.open {
+      flex-basis: $expanded-width;
+    }
+
+    & > #page-content {
+      flex: auto;
+      overflow: auto;
+    }
+  }
+}

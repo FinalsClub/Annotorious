@@ -15,6 +15,12 @@ if (Meteor.isClient) {
     }
   }
 
+  Template.top_and_side.events({
+    'click #menubutton': function () {
+       $('#sidebar').toggleClass('open');
+    }
+  });
+
   /* conditionally show the reading menu on the reading view page */
   Template.readingmenu.show_reading_menu = function () {
     var current = Router.current();

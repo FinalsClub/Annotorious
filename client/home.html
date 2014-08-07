@@ -4,29 +4,20 @@
 </head>
 
 <template name="top_and_side">
-  <div class="off-canvas-wrap" data-offcanvas>
-    <div class="inner-wrap">
-
-      <nav class="tab-bar">
-        <section class="left-small">
-          <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-        </section>
-
-        {{! TODO replace this with a variable }}
-        <section class="middle tab-bar-section">
-          <h1 class="title">Annotorious</h1>
-        </section>
-      </nav>
-
-      <aside class="left-off-canvas-menu">
-        <ul class="off-canvas-list">
+  <div id="outer">
+    <div id="header">
+       <div id="menubutton"><i class="fa fa-navicon"></i></div>
+       <div id="title">replace me with URL aware function</div>
+    </div>
+    <div id="inner">
+      <div id="sidebar">
+        <ul id="sidebar-content">
           {{> which_menu }}
         </ul>
-      </aside>
-
-      <section>
-        {{> yield }}
-      </section>
+      </div>
+      <div id="page-content">
+        {{> yield}}
+      </div>
     </div>
   </div>
   {{ initFoundation }}
