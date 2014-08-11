@@ -12,7 +12,25 @@
     <div id="inner">
       <div id="sidebar">
         <ul id="sidebar-content">
-          {{> which_menu }}
+          <li><a href="/library"><i class="fa fa-book"></i> Library</a></li>
+          {{#if show_reading_menu }}
+            <li><a href="#" id="show-table-of-contents">Chapter</a></li>
+            <li><a href="#" id="show-annotations">Annotations</a></li>
+            <li><a href="#" id="show-type-menu">Type</a></li>
+          {{/if}}
+          {{#if currentUser }}
+            <li><a href="#"><i class="fa fa-star"></i> My Items</a></li>
+            <li><a href="#"><i class="fa fa-sliders"></i> Settings</a></li>
+          {{/if}}
+          {{! TODO replace with variable }}
+          <li><a href="/about">About Annotorious</a></li>
+          <li>
+            {{#if currentUser}}
+              <a href="#">Log out</a>
+            {{else}}
+              <a href="/welcome">Log in</a>
+            {{/if}}
+          </li>
         </ul>
       </div>
       <div id="page-content">
@@ -21,37 +39,4 @@
     </div>
   </div>
   {{ initFoundation }}
-</template>
-
-<template name="signed_in_menu">
-  {{> librarylink }}
-  <li><a href="#"><i class="fa fa-star"></i> My Items</a></li>
-  <li><a href="#"><i class="fa fa-sliders"></i> Settings</a></li>
-  {{> readingmenu }}
-  {{> aboutlink }}
-  <li><a href="#">Log out</a></li>
-</template>
-
-<template name="signed_out_menu">
-  {{> librarylink }}
-  {{> readingmenu }}
-  {{> aboutlink }}
-  <li><a href="/welcome">Log in</a></li>
-</template>
-
-<template name="readingmenu">
-  {{#if show_reading_menu }}
-    <li><a href="#" id="show-table-of-contents">Chapter</a></li>
-    <li><a href="#" id="show-annotations">Annotations</a></li>
-    <li><a href="#" id="show-type-menu">Type</a></li>
-  {{/if}}
-</template>
-
-<template name="librarylink">
-  <li><a href="/library"><i class="fa fa-book"></i> Library</a></li>
-</template>
-
-<template name="aboutlink">
-  {{! TODO replace with variable }}
-  <li><a href="/about">About Annotorious</a></li>
 </template>
