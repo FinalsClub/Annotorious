@@ -13,10 +13,6 @@ Router.map(function() {
     register: "/register"
   };
 
-  var top_and_side_routes = {
-    about: "/about"
-  };
-
   this.route('root', {
     path: '/',
     action: function() {
@@ -47,18 +43,16 @@ Router.map(function() {
     }
   });
 
+  this.route('about', {
+    path: '/about',
+    controller: TopAndSideController
+  });
+
   var self = this;
   _.chain(welcome_routes).keys().each(function(name) {
     self.route(name, {
       path: welcome_routes[name],
       layoutTemplate: 'welcome'
-    });
-  });
-
-  _.chain(top_and_side_routes).keys().each(function(name) {
-    self.route(name, {
-      path: top_and_side_routes[name],
-      controller: TopAndSideController
     });
   });
 });
