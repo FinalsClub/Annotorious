@@ -1,3 +1,7 @@
+TopAndSideController = RouteController.extend({
+  layoutTemplate: 'top_and_side'
+});
+
 Router.map(function() {
   // Read paths from a JSON configuration file.
   // Formatted as { '/path': 'template', ... }
@@ -22,7 +26,7 @@ Router.map(function() {
 
   this.route('library', {
     path: '/library',
-    layoutTemplate: 'top_and_side',
+    controller: TopAndSideController,
     waitOn: function() {
       return Meteor.subscribe('works');
     }
@@ -30,7 +34,7 @@ Router.map(function() {
 
   this.route('readingview', {
     path: '/view/:_id',
-    layoutTemplate: 'top_and_side',
+    controller: TopAndSideController,
     waitOn: function() {
       var id = new Meteor.Collection.ObjectID(this.params._id);
 
@@ -54,7 +58,7 @@ Router.map(function() {
   _.chain(top_and_side_routes).keys().each(function(name) {
     self.route(name, {
       path: top_and_side_routes[name],
-      layoutTemplate: 'top_and_side'
+      controller: TopAndSideController
     });
   });
 });
