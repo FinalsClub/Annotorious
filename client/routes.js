@@ -65,8 +65,12 @@ Router.map(function() {
     },
     afterData: function() {
       var id = new Meteor.Collection.ObjectID(this.params._id);
-      var work_id = SectionContents.findOne(id).work_id;
-      return Works.findOne(work_id).sections;
+      var section = SectionContents.findOne(id);
+      var work = Works.findOne(section.work_id);
+      return {
+        section: section,
+        work: work
+      };
     }
   });
 

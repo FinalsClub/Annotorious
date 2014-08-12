@@ -9,9 +9,11 @@
     </div>
     <div id="content-wrap">
       <div id="content">
-        {{#with get_section }}
-          {{{ html }}}
-        {{/with}}
+        {{#if section}}
+          {{{ section.html }}}
+        {{else}}
+          Loading...
+        {{/if}}
       </div>
     </div>
   </div>
@@ -36,7 +38,7 @@
 
 <template name="table_of_contents_panel">
   <div id="table-of-contents">
-    {{> sections }}
+    {{> sections work.sections }}
   </div>
 </template>
 
