@@ -1,4 +1,31 @@
-TopAndSideController = RouteController.extend({
+/* This controller provides beforeData and afterData hooks to
+ * routes. The former is fired before waiting for data has
+ * completed, while the latter is fired after. A plain data
+ * hook is still available, and is fired if either of the
+ * before or after hooks is missing. Any of these hooks can
+ * be either objects or functions.
+ */
+EnhancedDataController = RouteController.extend({
+  data: function() {
+    var prop, options = this.route.options;
+    if ('beforeData' in options && !this.ready()) {
+      prop = 'beforeData';
+    } else if ('afterData' in options && this.ready()) {
+      prop = 'afterData';
+    } else if ('data' in options) {
+      prop = 'data'
+    }
+
+    var data = options[prop];
+    if (typeof data === 'function') {
+      data = data.call(this);
+    }
+
+    return data;
+  }
+});
+
+TopAndSideController = EnhancedDataController.extend({
   layoutTemplate: 'top_and_side'
 });
 
@@ -36,7 +63,7 @@ Router.map(function() {
 
       return Meteor.subscribe('sectionview', id);
     },
-    data: function() {
+    afterData: function() {
       var id = new Meteor.Collection.ObjectID(this.params._id);
       var work_id = SectionContents.findOne(id).work_id;
       return Works.findOne(work_id).sections;
