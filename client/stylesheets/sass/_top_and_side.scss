@@ -7,8 +7,10 @@
   overflow: hidden;
 
   & > #header {
+    $header-height: 3em;
     flex: none;
-    line-height: 3em;
+    line-height: $header-height;
+    min-height: $header-height;
     background-color: blue;
     color: $theme4_fg;
     background-color: $theme4_bg;
