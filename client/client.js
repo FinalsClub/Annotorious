@@ -33,8 +33,7 @@ if (Meteor.isClient) {
 
   /* conditionally show the reading menu on the reading view page */
   Template.top_and_side.show_reading_menu = function () {
-    var current = Router.current();
-    return current && current.route && current.route.name === 'readingview';
+    return this.current === 'readingview';
   }
 
   function set_panel(name) {

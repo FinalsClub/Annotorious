@@ -4,12 +4,14 @@ Router.onBeforeAction(function() {
   }
 });
 
-/* This controller provides beforeData and afterData hooks to
- * routes. The former is fired before waiting for data has
- * completed, while the latter is fired after. A plain data
- * hook is still available, and is fired if either of the
- * before or after hooks is missing. Any of these hooks can
- * be either objects or functions.
+/* This controller provides the following features to routes:
+ * 1. beforeData and afterData hooks. The former is fired before
+ *    waiting for data has completed, while the latter is fired
+ *    after. A plain data hook is still available, and is fired
+ *    if either of the before or after hooks is missing. Any of
+ *    these hooks can be either objects or functions.
+ * 2. Sets a "current" property in the data object specifying
+ *    the name of the current route.
  */
 EnhancedDataController = RouteController.extend({
   data: function() {
@@ -25,7 +27,21 @@ EnhancedDataController = RouteController.extend({
     var data = options[prop];
     if (typeof data === 'function') {
       data = data.call(this);
+    } else {
+      data = _.clone(data);
     }
+
+    if (typeof data === 'undefined') {
+      data = {};
+    }
+
+    /* This try/catch is for the off-chance that
+     * the data value is something that does not
+     * have properties (null, true, false, etc).
+     */
+    try {
+      data.current = this.route.name;
+    } catch(e) {}
 
     return data;
   }
