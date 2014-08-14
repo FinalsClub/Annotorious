@@ -1,5 +1,12 @@
 if (Meteor.isClient) {
-  document.title = Meteor.settings.public.project;
+  (window.set_title = function(page) {
+    var title = Meteor.settings.public.project;
+    if (page) {
+      title += ' - ' + page;
+    }
+
+    document.title = title;
+  })(null);
 
   UI.registerHelper('setting', function(prop) {
     return Meteor.settings.public[prop];

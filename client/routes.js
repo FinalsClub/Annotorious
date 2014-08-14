@@ -1,3 +1,9 @@
+Router.onBeforeAction(function() {
+  if ('title' in this.route.options) {
+    set_title(this.route.options.title);
+  }
+});
+
 /* This controller provides beforeData and afterData hooks to
  * routes. The former is fired before waiting for data has
  * completed, while the latter is fired after. A plain data
@@ -35,9 +41,18 @@ Router.map(function() {
   // This seems nicer in a config file than hard coding it here.
   // Pull this from routes.js
   var welcome_routes = {
-    welcome_blurb: "/welcome",
-    login: "/login",
-    register: "/register"
+    welcome_blurb: {
+      path: "/welcome",
+      title: 'Welcome'
+    },
+    login: {
+      path: "/login",
+      title: 'Login',
+    },
+    register: {
+      path: "/register",
+      title: 'Register'
+    }
   };
 
   this.route('root', {
@@ -52,7 +67,8 @@ Router.map(function() {
     controller: TopAndSideController,
     waitOn: function() {
       return Meteor.subscribe('works');
-    }
+    },
+    title: 'Library'
   });
 
   this.route('readingview', {
@@ -76,14 +92,14 @@ Router.map(function() {
 
   this.route('about', {
     path: '/about',
-    controller: TopAndSideController
+    controller: TopAndSideController,
+    title: 'About'
   });
 
   var self = this;
   _.chain(welcome_routes).keys().each(function(name) {
-    self.route(name, {
-      path: welcome_routes[name],
-      layoutTemplate: 'welcome'
-    });
+    var obj = welcome_routes[name];
+    obj.layoutTemplate = 'welcome';
+    self.route(name, obj);
   });
 });
