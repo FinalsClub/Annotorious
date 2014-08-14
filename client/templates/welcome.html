@@ -14,32 +14,26 @@
 </template>
 
 <template name="welcome_header">
-  <div class="logo" id="welcome_header_logo" ><img src="/annotorious_logo_64px.png" /></div>
+  <div class="logo" id="welcome_header_logo" ><img src="{{setting 'logo'}}" /></div>
   {{! project title comes from document title above }}
-  <div class="project" id="welcome_header_project">{{project}}</div>
-  <div class="motto" id="welcome_header_motto">{{motto}}</div>
+  <div class="project" id="welcome_header_project">{{setting 'project'}}</div>
+  <div class="motto" id="welcome_header_motto">{{setting 'motto'}}</div>
 </template>
 
 <template name="welcome_blurb">
   <ul class="blurb">
-    <li id="welcome_blurb_books">
-      <i class="fa fa-book"></i>
-      <span>Over 400 public domain books to read and annotate.</span>
-    </li>
-    <li id="welcome_blurb_community">
-      <i class="fa fa-users"></i>
-      <span>A large community to share with and learn from.</span>
-    </li>
-    <li id="welcome_blurb_free">
-      <i class="fa fa-thumbs-up"></i>
-      <span>Totally free. Totally awesome.</span>
-    </li>
+    {{#each setting 'brags'}}
+      <li>
+        <i class="fa fa-{{icon}}"></i>
+        <span>{{text}}</span>
+      </li>
+    {{/each}}
   </ul>
 </template>
 
 <template name="point_to_authenticate">
-  <div id="explore_annotorious">
-    <a id="proceed_without_login" href="/library">Explore Annotorious</a>
+  <div id="explore_library">
+    <a id="proceed_without_login" href="/library">Explore {{setting 'project'}}</a>
   </div>
   <div>
     <a id="point_to_authenticate_log_in" href="/login">Log In</a> or

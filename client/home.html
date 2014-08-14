@@ -1,5 +1,4 @@
 <head>
-  <title>Annotorious</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -22,8 +21,7 @@
             <li><a href="#"><i class="fa fa-star"></i> My Items</a></li>
             <li><a href="#"><i class="fa fa-sliders"></i> Settings</a></li>
           {{/if}}
-          {{! TODO replace with variable }}
-          <li><a href="/about">About Annotorious</a></li>
+          <li><a href="/about">About {{setting 'project'}}</a></li>
           <li>
             {{#if currentUser}}
               <a href="#">Log out</a>

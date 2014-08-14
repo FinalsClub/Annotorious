@@ -18,6 +18,7 @@ Using either the web interface or the CLI, add the following variables.
 * `MONGOHQ_URL should be given automatically. Copy the contents of it and paste it into:
 * Mongo database URL. `MONGO_URL = (pasted from above)`
 * Meteorite buildpack requires the domain name. `ROOT_URL = http://whatever.herokuapp.com/` (see [heroku-buildpack-meteorite readme](https://github.com/oortcloud/heroku-buildpack-meteorite#notes))
+* Push the settings: `heroku config:set METEOR_SETTINGS="`cat settings.json`"`
 
 ### Push to Heroku
 

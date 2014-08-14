@@ -1,4 +1,9 @@
 if (Meteor.isClient) {
+  document.title = Meteor.settings.public.project;
+
+  UI.registerHelper('setting', function(prop) {
+    return Meteor.settings.public[prop];
+  });
 
   /*
    HOME TEMPLATE
