@@ -90,6 +90,18 @@ Router.map(function() {
     }
   });
 
+  this.route('myitems', {
+    path: '/myitems',
+    controller: TopAndSideController,
+    title: 'My Items'
+  });
+
+  this.route('settings', {
+    path: '/settings',
+    controller: TopAndSideController,
+    title: 'Settings'
+  });
+
   this.route('about', {
     path: '/about',
     controller: TopAndSideController,
