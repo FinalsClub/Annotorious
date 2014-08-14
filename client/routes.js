@@ -12,6 +12,9 @@ Router.onBeforeAction(function() {
  *    these hooks can be either objects or functions.
  * 2. Sets a "current" property in the data object specifying
  *    the name of the current route.
+ * 3. UI title handling. If a "title" property is set in a
+ *    data object by a route, the window title will be set
+ *    to that.
  */
 EnhancedDataController = RouteController.extend({
   data: function() {
@@ -40,6 +43,13 @@ EnhancedDataController = RouteController.extend({
      * have properties (null, true, false, etc).
      */
     try {
+      if ('title' in data) {
+        /* If a new title was set in the data object,
+         * use that title.
+         */
+        set_title(data.title);
+      }
+
       data.current = this.route.name;
     } catch(e) {}
 
@@ -101,7 +111,8 @@ Router.map(function() {
       var work = Works.findOne(section.work_id);
       return {
         section: section,
-        work: work
+        work: work,
+        title: work.title
       };
     }
   });
