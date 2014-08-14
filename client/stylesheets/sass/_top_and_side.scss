@@ -29,6 +29,10 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
+
+      #app-name {
+        font-weight: bold;
+      }
     }
   }
 
