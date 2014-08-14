@@ -12,3 +12,9 @@ body {
 
 /* this must be imported last or else none of custom foundation vars work */
 @import "packages/foundation5-sass/foundation";
+
+@media #{$small-only} {
+  .hide-on-mobile {
+    display: none;
+  }
+}

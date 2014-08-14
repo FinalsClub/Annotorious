@@ -12,9 +12,14 @@ Router.onBeforeAction(function() {
  *    these hooks can be either objects or functions.
  * 2. Sets a "current" property in the data object specifying
  *    the name of the current route.
- * 3. UI title handling. If a "title" property is set in a
- *    data object by a route, the window title will be set
- *    to that.
+ * 3. UI title handling.
+ *    a. If a "title" property is set in a data object by a
+ *       route, the window title will be set to that.
+ *    b. If no "title" property is set in a data object
+ *       and a title property is set in the route, the value
+ *       will be copied to the data object so that it becomes
+ *       available to templates. This can be used with the
+ *       onBeforeAction hook above.
  */
 EnhancedDataController = RouteController.extend({
   data: function() {
@@ -48,6 +53,16 @@ EnhancedDataController = RouteController.extend({
          * use that title.
          */
         set_title(data.title);
+      } else if ('title' in this.route.options) {
+        /* If no title was set in the data object,
+         * and one was set in the route, add this
+         * title to the data object so that it will
+         * be available to add to the top bar. We do
+         * not need to call set_title here because
+         * the onBeforeAction hook above will already
+         * have been called.
+         */
+        data.title = this.route.options.title;
       }
 
       data.current = this.route.name;

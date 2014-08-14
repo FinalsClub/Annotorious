@@ -7,7 +7,11 @@
     <div id="header">
       <div id="menubutton"><i class="fa fa-navicon"></i></div>
       <div id="title">
-        <span id="app-name">{{setting 'project'}}</span>
+        {{#if title}}
+          <span class="hide-on-mobile"><span id="app-name">{{setting 'project'}}</span> &middot; </span>{{title}}
+        {{else}}
+          <span id="app-name">{{setting 'project'}}</span>
+        {{/if}}
       </div>
     </div>
     <div id="inner">
