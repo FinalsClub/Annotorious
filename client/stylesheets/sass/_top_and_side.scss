@@ -53,12 +53,12 @@
         height: 100%;
         right: 0;
 
-        & > li > a {
+        & > li > * {
           padding: 0.75em;
           display: block;
           transition: background-color 300ms ease;
 
-          &:hover {
+          &:hover, &.current {
             background-color: $theme2_hl;
           }
         }
