@@ -21,5 +21,5 @@ Using either the web interface or the CLI, add the following variables.
 
 ### Push to Heroku
 
-        git remote add heroku git@heroku.com:/whatever
+        heroku git:remote -a whatever
         git push heroku master
