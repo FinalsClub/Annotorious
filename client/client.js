@@ -1,24 +1,46 @@
 if (Meteor.isClient) {
+  (window.set_title = function(page) {
+    var title = Meteor.settings.public.project;
+    if (page) {
+      title += ' - ' + page;
+    }
+
+    document.title = title;
+  })(null);
+
+  UI.registerHelper('setting', function(prop) {
+    return Meteor.settings.public[prop];
+  });
 
   /*
    HOME TEMPLATE
    */
 
-  /* render different menu template for logged in or out */
-  Template.top_and_side.which_menu = function() {
-    if (Meteor.userId() === null) {
-      /* user is logged out, so change to log in */
-      return Template['signed_out_menu'];
-    } else {
-      /* user is logged in, so change to log out */
-      return Template['signed_in_menu'];
+  Template.top_and_side.events({
+    'click #menubutton': function () {
+       $('#sidebar').toggleClass('open');
+    },
+    'click .show-panel-button': function() {
+      set_panel(this.panel);
     }
+  });
+
+  Template.menu_item.currentRoute = function() {
+    return this.current == this.route;
+  }
+
+  Template.reading_menu_item.currentPanel = function() {
+    return Session.get('reading-view-panel-visible') &&
+           Session.equals('reading-view-panel', this.panel);
   }
 
   /* conditionally show the reading menu on the reading view page */
-  Template.readingmenu.show_reading_menu = function () {
-    var current = Router.current();
-    return current && current.route && current.route.name === 'readingview';
+  Template.top_and_side.show_reading_menu = function () {
+    return this.current === 'readingview';
+  }
+
+  Template.top_and_side.about_text = function() {
+    return 'About ' + Meteor.settings.public.project;
   }
 
   function set_panel(name) {
@@ -30,17 +52,5 @@ if (Meteor.isClient) {
       Session.set('reading-view-panel-visible', true);
     }
   }
-
-  Template.readingmenu.events({
-    'click #show-table-of-contents': function() {
-      set_panel('table_of_contents_panel');
-    },
-    'click #show-annotations': function() {
-      set_panel('annotation_list_panel');
-    },
-    'click #show-type-menu': function() {
-      set_panel('type_panel');
-    }
-  });
 
 }

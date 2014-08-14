@@ -1,16 +1,99 @@
+Router.onBeforeAction(function() {
+  if ('title' in this.route.options) {
+    set_title(this.route.options.title);
+  }
+});
+
+/* This controller provides the following features to routes:
+ * 1. beforeData and afterData hooks. The former is fired before
+ *    waiting for data has completed, while the latter is fired
+ *    after. A plain data hook is still available, and is fired
+ *    if either of the before or after hooks is missing. Any of
+ *    these hooks can be either objects or functions.
+ * 2. Sets a "current" property in the data object specifying
+ *    the name of the current route.
+ * 3. UI title handling.
+ *    a. If a "title" property is set in a data object by a
+ *       route, the window title will be set to that.
+ *    b. If no "title" property is set in a data object
+ *       and a title property is set in the route, the value
+ *       will be copied to the data object so that it becomes
+ *       available to templates. This can be used with the
+ *       onBeforeAction hook above.
+ */
+EnhancedDataController = RouteController.extend({
+  data: function() {
+    var prop, options = this.route.options;
+    if ('beforeData' in options && !this.ready()) {
+      prop = 'beforeData';
+    } else if ('afterData' in options && this.ready()) {
+      prop = 'afterData';
+    } else if ('data' in options) {
+      prop = 'data'
+    }
+
+    var data = options[prop];
+    if (typeof data === 'function') {
+      data = data.call(this);
+    } else {
+      data = _.clone(data);
+    }
+
+    if (typeof data === 'undefined') {
+      data = {};
+    }
+
+    /* This try/catch is for the off-chance that
+     * the data value is something that does not
+     * have properties (null, true, false, etc).
+     */
+    try {
+      if ('title' in data) {
+        /* If a new title was set in the data object,
+         * use that title.
+         */
+        set_title(data.title);
+      } else if ('title' in this.route.options) {
+        /* If no title was set in the data object,
+         * and one was set in the route, add this
+         * title to the data object so that it will
+         * be available to add to the top bar. We do
+         * not need to call set_title here because
+         * the onBeforeAction hook above will already
+         * have been called.
+         */
+        data.title = this.route.options.title;
+      }
+
+      data.current = this.route.name;
+    } catch(e) {}
+
+    return data;
+  }
+});
+
+TopAndSideController = EnhancedDataController.extend({
+  layoutTemplate: 'top_and_side'
+});
+
 Router.map(function() {
   // Read paths from a JSON configuration file.
   // Formatted as { '/path': 'template', ... }
   // This seems nicer in a config file than hard coding it here.
   // Pull this from routes.js
   var welcome_routes = {
-    welcome_blurb: "/welcome",
-    login: "/login",
-    register: "/register"
-  };
-
-  var top_and_side_routes = {
-    about: "/about"
+    welcome_blurb: {
+      path: "/welcome",
+      title: 'Welcome'
+    },
+    login: {
+      path: "/login",
+      title: 'Login',
+    },
+    register: {
+      path: "/register",
+      title: 'Register'
+    }
   };
 
   this.route('root', {
@@ -22,39 +105,55 @@ Router.map(function() {
 
   this.route('library', {
     path: '/library',
-    layoutTemplate: 'top_and_side',
+    controller: TopAndSideController,
     waitOn: function() {
       return Meteor.subscribe('works');
-    }
+    },
+    title: 'Library'
   });
 
   this.route('readingview', {
     path: '/view/:_id',
-    layoutTemplate: 'top_and_side',
+    controller: TopAndSideController,
     waitOn: function() {
       var id = new Meteor.Collection.ObjectID(this.params._id);
 
       return Meteor.subscribe('sectionview', id);
     },
-    data: function() {
+    afterData: function() {
       var id = new Meteor.Collection.ObjectID(this.params._id);
-      var work_id = SectionContents.findOne(id).work_id;
-      return Works.findOne(work_id).sections;
+      var section = SectionContents.findOne(id);
+      var work = Works.findOne(section.work_id);
+      return {
+        section: section,
+        work: work,
+        title: work.title
+      };
     }
+  });
+
+  this.route('myitems', {
+    path: '/myitems',
+    controller: TopAndSideController,
+    title: 'My Items'
+  });
+
+  this.route('settings', {
+    path: '/settings',
+    controller: TopAndSideController,
+    title: 'Settings'
+  });
+
+  this.route('about', {
+    path: '/about',
+    controller: TopAndSideController,
+    title: 'About'
   });
 
   var self = this;
   _.chain(welcome_routes).keys().each(function(name) {
-    self.route(name, {
-      path: welcome_routes[name],
-      layoutTemplate: 'welcome'
-    });
-  });
-
-  _.chain(top_and_side_routes).keys().each(function(name) {
-    self.route(name, {
-      path: top_and_side_routes[name],
-      layoutTemplate: 'top_and_side'
-    });
+    var obj = welcome_routes[name];
+    obj.layoutTemplate = 'welcome';
+    self.route(name, obj);
   });
 });

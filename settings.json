@@ -1,0 +1,18 @@
+{
+  "public": {
+    "project": "Annotorious",
+    "motto": "The best way to read and annotate the world's best books.",
+    "brags": [{
+        "icon": "book",
+        "text": "Over 400 public domain books to read and annotate."
+      }, {
+        "icon": "users",
+        "text": "A large community to share with and learn from."
+      }, {
+        "icon": "thumbs-up",
+        "text": "Totally free. Totally awesome."
+    }],
+    "logo": "/annotorious_logo_64px.png",
+    "logo_color": "/annotorious_logo_64px_color.png"
+  }
+}

@@ -5,7 +5,6 @@
 
 standard-app-packages
 simple-schema
-autoform
 collection2
 iron-router
 accounts-base

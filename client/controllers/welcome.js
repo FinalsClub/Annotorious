@@ -22,22 +22,6 @@ if (Meteor.isClient) {
    */
 
   /*
-   Welcome Header
-   */
-  Template.welcome_header.project = function () {
-    /* TODO Pull this from description.js or the data store */
-    var description = {
-      'title': 'Annotorious'
-    };
-    return description.title;
-  };
-
-  Template.welcome_header.motto = function () {
-    // Maybe this would be better in a JSON file somehow/somewhere?
-    return "The best way to read and annotate the world's best books.";
-  };
-
-  /*
    Responds to login screen events
    */
   Template.login.events({

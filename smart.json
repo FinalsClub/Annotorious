@@ -1,10 +1,10 @@
 {
   "packages": {
     "simple-schema": {},
-    "autoform": {},
     "iron-router": {},
     "font-awesome": {},
     "scss": {},
-    "foundation5-sass": {}
+    "foundation5-sass": {},
+    "collection2": {}
   }
 }
