@@ -20,19 +20,18 @@ if (Meteor.isClient) {
     'click #menubutton': function () {
        $('#sidebar').toggleClass('open');
     },
-    'click #show-table-of-contents': function() {
-      set_panel('table_of_contents_panel');
-    },
-    'click #show-annotations': function() {
-      set_panel('annotation_list_panel');
-    },
-    'click #show-type-menu': function() {
-      set_panel('type_panel');
+    'click .show-panel-button': function() {
+      set_panel(this.panel);
     }
   });
 
   Template.menu_item.currentRoute = function() {
     return this.current == this.route;
+  }
+
+  Template.reading_menu_item.currentPanel = function() {
+    return Session.get('reading-view-panel-visible') &&
+           Session.equals('reading-view-panel', this.panel);
   }
 
   /* conditionally show the reading menu on the reading view page */

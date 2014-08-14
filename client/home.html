@@ -13,9 +13,9 @@
         <ul id="sidebar-content">
           {{> menu_item route="library" icon="book" text="Library" current=current }}
           {{#if show_reading_menu }}
-            <li><a href="#" id="show-table-of-contents">Chapter</a></li>
-            <li><a href="#" id="show-annotations">Annotations</a></li>
-            <li><a href="#" id="show-type-menu">Type</a></li>
+            {{> reading_menu_item panel="table_of_contents_panel" text="Chapter" }}
+            {{> reading_menu_item panel="annotation_list_panel" text="Annotations" }}
+            {{> reading_menu_item panel="type_panel" text="Type" }}
           {{/if}}
           {{#if currentUser }}
             {{> menu_item route="myitems" icon="star" text="My Items" current=current }}
@@ -51,4 +51,10 @@
 
 <template name="sub_menu_item">
   <i class="fa fa-{{icon}}"></i> {{text}}
+</template>
+
+<template name="reading_menu_item">
+  <li>
+    <a href="#" class="show-panel-button {{#if currentPanel}}current{{/if}}">{{text}}</a>
+  </li>
 </template>
