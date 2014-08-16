@@ -1,7 +1,3 @@
-if (Meteor.isClient) {
-
-  /*
-   ABOUT TEMPLATE
-   */
-
-}
+/*
+ ABOUT TEMPLATE
+ */
