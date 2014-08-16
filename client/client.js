@@ -1,4 +1,4 @@
-(window.set_title = function(page) {
+(set_title = function(page) {
   var title = Meteor.settings.public.project;
   if (page) {
     title += ' - ' + page;
