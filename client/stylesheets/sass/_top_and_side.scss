@@ -54,6 +54,7 @@
       }
 
       & > #sidebar-content {
+        overflow: auto;
         position: absolute;
         width: $expanded-width;
         height: 100%;
