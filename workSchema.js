@@ -13,12 +13,14 @@ SectionContents = new Meteor.Collection("sectionContents", {
 
 Annotations = new Meteor.Collection("annotations", {
   idGeneration: 'MONGO',
-  content_id: {
-    type: Meteor.Collection.ObjectID
-  },
-  annotation: {
-    type: Object,
-    blackbox: true
+  schema: {
+    content_id: {
+      type: Meteor.Collection.ObjectID
+    },
+    annotation: {
+      type: Object,
+      blackbox: true
+    }
   }
 })
 
