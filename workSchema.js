@@ -1,5 +1,6 @@
 
 SectionContents = new Meteor.Collection("sectionContents", {
+  idGeneration: 'MONGO',
   schema: {
     work_id: {
       type: Meteor.Collection.ObjectID
@@ -11,6 +12,7 @@ SectionContents = new Meteor.Collection("sectionContents", {
 });
 
 Annotations = new Meteor.Collection("annotations", {
+  idGeneration: 'MONGO',
   content_id: {
     type: Meteor.Collection.ObjectID
   },
@@ -45,6 +47,7 @@ Section = new SimpleSchema({
 });
 
 Works = new Meteor.Collection("works", {
+  idGeneration: 'MONGO',
   schema: {
     title: {
       type: String,
