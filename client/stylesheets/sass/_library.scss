@@ -1,55 +1,57 @@
 @import 'palette';
 
-$work-horizontal-spacing: 0.5em;
 $block-grid-default-spacing: 0;
-.work {
-  background-color: $theme5_bg;
-  padding: 1em $work-horizontal-spacing;
-  border-bottom: 1px solid $theme5_ut;
-  @include vendor-prefix(display, flex, 1);
+#library {
+  $work-horizontal-spacing: 0.5em;
+  .work {
+    background-color: $theme5_bg;
+    padding: 1em $work-horizontal-spacing;
+    border-bottom: 1px solid $theme5_ut;
+    @include vendor-prefix(display, flex, 1);
 
-  .image {
-    @include vendor-prefix(flex, 0 0 50px);
-  }
+    .image {
+      @include vendor-prefix(flex, 0 0 50px);
+    }
 
-  .metadata {
-    & > * {
-      padding-bottom: 0.25em;
+    .metadata {
+      & > * {
+        padding-bottom: 0.25em;
+      }
+    }
+
+    .work-annotations {
+      color: $theme5_ut;
+      font-size: small;
+    }
+    .work-title {
+      color: $theme5_hl;
+      font-size: large;
+    }
+    .work-author-year {
+      color: $theme5_fg;
+    }
+    .work-summary {
+      color: $theme5_ut;
+      font-size: small;
     }
   }
 
-  .work-annotations {
-    color: $theme5_ut;
-    font-size: small;
-  }
-  .work-title {
-    color: $theme5_hl;
-    font-size: large;
-  }
-  .work-author-year {
-    color: $theme5_fg;
-  }
-  .work-summary {
-    color: $theme5_ut;
-    font-size: small;
-  }
-}
+  // Style changes for grid mode
+  &.grid .work {
+    padding-left: 0;
+    padding-right: 0;
 
-// Style changes for grid mode
-#library.grid .work {
-  padding-left: 0;
-  padding-right: 0;
+    margin-left: $work-horizontal-spacing;
+    margin-right: $work-horizontal-spacing;
+  }
 
-  margin-left: $work-horizontal-spacing;
-  margin-right: $work-horizontal-spacing;
-}
+  // Library-specific work styles
+  .metadata {
+    white-space: nowrap;
 
-// Library-specific work styles
-#library .metadata {
-  white-space: nowrap;
-
-  & > * {
-    overflow: hidden;
-    text-overflow: ellipsis;
+    & > * {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
