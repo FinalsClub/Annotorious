@@ -1,31 +1,33 @@
 <!-- LIBRARY PAGE -->
 
 <template name="library">
-  <nav class="top-bar" data-topbar>
-    <section class="top-bar-section">
-      <ul class="left">
-        <li class="has-dropdown"><a href="#">Sort</a>
-          <ul class="dropdown">
-            <li><a href="#" id="sort-title">Title (A-Z)</a></li>
-            <li><a href="#" id="sort-annos">Annotations (most to least)</a></li>
-            <li><a href="#" id="sort-author">Author (A-Z)</a></li>
-            <li><a href="#" id="sort-date">Publication year (most recent to oldest)</a></li>
-          </ul>
-        </li>
-        <li class="has-dropdown"><a href="#">Filter</a>
-          <ul class="dropdown">
-            <li><a href="#">bwop bwop nothing here</a></li>
-          </ul>
-        </li>
-        <li><a href="#" id="library-mode-toggle">View</a></li>
-      </ul>
-    </section>
-  </nav>
-  <ul id="library" class="{{grid_classes}}">
-    {{#each get_works}}
-      <li>{{> work }}</li>
-    {{/each}}
-  </ul>
+  <div class="page-content">
+    <nav class="top-bar" data-topbar>
+      <section class="top-bar-section">
+        <ul class="left">
+          <li class="has-dropdown"><a href="#">Sort</a>
+            <ul class="dropdown">
+              <li><a href="#" id="sort-title">Title (A-Z)</a></li>
+              <li><a href="#" id="sort-annos">Annotations (most to least)</a></li>
+              <li><a href="#" id="sort-author">Author (A-Z)</a></li>
+              <li><a href="#" id="sort-date">Publication year (most recent to oldest)</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown"><a href="#">Filter</a>
+            <ul class="dropdown">
+              <li><a href="#">bwop bwop nothing here</a></li>
+            </ul>
+          </li>
+          <li><a href="#" id="library-mode-toggle">View</a></li>
+        </ul>
+      </section>
+    </nav>
+    <ul id="library" class="{{grid_classes}}">
+      {{#each get_works}}
+        <li>{{> work }}</li>
+      {{/each}}
+    </ul>
+  </div>
 </template>
 
 <template name="work">

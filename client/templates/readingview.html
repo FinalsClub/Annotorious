@@ -1,20 +1,18 @@
 <!-- READING VIEW -->
 
 <template name="readingview">
-  <div id="panel-selector">
-    <div id="section-sidebar" class="sidebar {{#if panel_visible}}open{{/if}}">
-      <div class="sidebar-content">
-        {{> get_panel_contents}}
-      </div>
+  <div id="section-sidebar" class="sidebar {{#if panel_visible}}open{{/if}}">
+    <div class="sidebar-content">
+      {{> get_panel_contents}}
     </div>
+  </div>
+  <div class="page-content">
     <div id="section-content">
-      <div>
-        {{#if section}}
-          {{> content section}}
-        {{else}}
-          Loading...
-        {{/if}}
-      </div>
+      {{#if section}}
+        {{> content section}}
+      {{else}}
+        Loading...
+      {{/if}}
     </div>
   </div>
 </template>

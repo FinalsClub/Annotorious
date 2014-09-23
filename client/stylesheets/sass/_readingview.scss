@@ -1,18 +1,10 @@
 @import 'palette';
 
-#panel-selector {
-  @include vendor-prefix(display, flex, 1);
-}
-
 #section-sidebar {
   @include hideable-sidebar(24em);
 }
 
 #section-content {
-  @include vendor-prefix(flex, auto);
-
-  & > div {
-    width: 75%;
-    margin: 1em auto;
-  }
+  width: 75%;
+  margin: 1em auto;
 }

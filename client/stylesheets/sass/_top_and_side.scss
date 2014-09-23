@@ -60,7 +60,7 @@
       }
     }
 
-    & > #page-content {
+    & > .page-content {
       @include vendor-prefix(flex, auto);
       overflow: auto;
     }
