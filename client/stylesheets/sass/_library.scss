@@ -53,10 +53,3 @@ $block-grid-default-spacing: 0;
     text-overflow: ellipsis;
   }
 }
-
-// Override Foundation stuff
-ul#library {
-  line-height: inherit;
-  list-style: none;
-  margin: 0;
-}

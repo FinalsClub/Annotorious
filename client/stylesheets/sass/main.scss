@@ -68,3 +68,9 @@ $prefixes: webkit ms moz o;
     display: none;
   }
 }
+
+ul {
+  margin: 0;
+  list-style: none;
+  line-height: inherit;
+}

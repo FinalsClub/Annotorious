@@ -29,14 +29,10 @@ ul.blurb {
   margin-left: auto;
   margin-right: auto;
   width: 26em;
+  line-height: 1.6;
 
-  li {
-    list-style-type: none;
-    list-style-image: none;
-
-    i {
-      width: 1.5em;
-    }
+  li i {
+    width: 1.5em;
   }
 }
 div#explore_library {
