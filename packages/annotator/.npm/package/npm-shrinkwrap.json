@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "annotator": {
+      "version": "https://github.com/FinalsClub/annotator/tarball/9d5ba6473fedb2a894674f0851f7fb5af85e9580",
+      "dependencies": {
+        "backbone-events-standalone": {
+          "version": "0.2.4"
+        },
+        "backbone-extend-standalone": {
+          "version": "0.1.2"
+        },
+        "es6-promise": {
+          "version": "0.1.2"
+        },
+        "xpath-range": {
+          "version": "0.0.3"
+        },
+        "jquery": {
+          "version": "1.11.1"
+        }
+      }
+    }
+  }
+}
