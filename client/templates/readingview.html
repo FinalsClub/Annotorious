@@ -1,7 +1,7 @@
 <!-- READING VIEW -->
 
 <template name="readingview">
-  <div id="panel-selector" class="{{get_panel_visible}}">
+  <div id="panel-selector" class="{{#if panel_visible}}show{{else}}hide{{/if}}-panel">
     <div id="side-panel-wrap">
       <div id="side-panel-content">
         {{> get_panel_contents}}

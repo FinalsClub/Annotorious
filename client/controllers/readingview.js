@@ -3,12 +3,8 @@ Meteor.startup(function() {
   Session.setDefault('reading-view-panel-visible', false);
 });
 
-Template.readingview.get_panel_visible = function() {
-  if (Session.get('reading-view-panel-visible')) {
-    return 'show-panel';
-  } else {
-    return 'hide-panel';
-  }
+Template.readingview.panel_visible = function() {
+  return Session.get('reading-view-panel-visible');
 }
 
 Template.readingview.get_panel_contents = function() {
