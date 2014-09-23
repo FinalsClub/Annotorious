@@ -15,3 +15,34 @@ Template.readingview.get_panel_contents = function() {
 
   return Template[panel];
 }
+
+Template.content.rendered = function() {
+  var self = this;
+  var store_config = {
+    collection: Annotations,
+    annotationPath: 'annotation',
+    createDocument: function(annotation) {
+      return {
+        content_id: self.data._id,
+        annotation: annotation
+      }
+    }
+  };
+
+  var Annotator = require('annotator');
+  var MeteorStore = require('annotator-store-meteor');
+  var Highlighter = require('annotator-plugin-highlighter');
+
+  var factory = new Annotator.Factory();
+  var elem = this.firstNode.parentNode;
+  this.annotator = factory.setStore(MeteorStore, store_config)
+                          .addPlugin(Highlighter, elem)
+                          .getInstance();
+
+  this.annotator.attach(elem);
+  this.annotator.annotations.load({ content_id: this.data._id });
+}
+
+Template.content.destroyed = function() {
+  this.annotator.destroy();
+}

@@ -10,13 +10,17 @@
     <div id="content-wrap">
       <div id="content">
         {{#if section}}
-          {{{ section.html }}}
+          {{> content section}}
         {{else}}
           Loading...
         {{/if}}
       </div>
     </div>
   </div>
+</template>
+
+<template name="content">
+  <div>{{{ html }}}</div>
 </template>
 
 <template name="sections">
