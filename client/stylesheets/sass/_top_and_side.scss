@@ -1,14 +1,14 @@
 @import 'palette';
 
 #outer {
-  display: flex;
-  flex-direction: column;
+  @include vendor-prefix(display, flex, 1);
+  @include vendor-prefix(flex-direction, column);
   height: 100%;
   overflow: hidden;
 
   & > #header {
     $header-height: 3em;
-    flex: none;
+    @include vendor-prefix(flex, none);
     line-height: $header-height;
     min-height: $header-height;
     background-color: blue;
@@ -37,14 +37,14 @@
   }
 
   & > #inner {
-    display: flex;
-    flex: auto;
+    @include vendor-prefix(display, flex, 1);
+    @include vendor-prefix(flex, auto);
 
     $expanded-width: 12em;
     & > #sidebar {
       overflow: hidden;
-      flex: 0 0 0;
-      transition: flex-basis 500ms ease;
+      @include vendor-prefix(flex, 0 0 0);
+      @include vendor-prefix(transition, flex-basis 500ms ease, 1);
       position: relative;
       color: $theme2_fg;
       background-color: $theme2_bg;
@@ -73,11 +73,11 @@
     }
 
     & > #sidebar.open {
-      flex-basis: $expanded-width;
+      @include vendor-prefix(flex-basis, $expanded-width);
     }
 
     & > #page-content {
-      flex: auto;
+      @include vendor-prefix(flex, auto);
       overflow: auto;
     }
   }

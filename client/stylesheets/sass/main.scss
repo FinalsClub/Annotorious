@@ -5,6 +5,30 @@ body {
   background-color: $theme1_bg;
 }
 
+$prefixes: webkit ms moz o;
+@mixin vendor-prefix($name, $arguments, $which: 0) {
+  @each $prefix in $prefixes {
+    $new-name: $name;
+    @if index($which, 0) != false {
+      $new-name: -#{$prefix}-#{$new-name};
+    }
+
+    $new-list: ();
+    @for $i from 1 through length($arguments) {
+      $arg: nth($arguments, $i);
+      @if index($which, $i) != false {
+        $arg: -#{$prefix}-#{$arg};
+      }
+
+      $new-list: append($new-list, $arg);
+    }
+
+    #{$new-name}: #{$new-list};
+  }
+
+  #{$name}: #{$arguments};
+}
+
 @import 'welcome';
 @import 'top_and_side';
 @import 'library';

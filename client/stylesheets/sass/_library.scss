@@ -6,10 +6,10 @@ $block-grid-default-spacing: 0;
   background-color: $theme5_bg;
   padding: 1em $work-horizontal-spacing;
   border-bottom: 1px solid $theme5_ut;
-  display: flex;
+  @include vendor-prefix(display, flex, 1);
 
   .image {
-    flex: 0 0 50px;
+    @include vendor-prefix(flex, 0 0 50px);
   }
 
   .metadata {
