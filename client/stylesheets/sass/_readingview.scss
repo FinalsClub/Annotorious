@@ -2,6 +2,7 @@
 
 #section-sidebar {
   @include hideable-sidebar(24em);
+  background-color: #ececec;
 }
 
 #section-content {
