@@ -6,6 +6,15 @@
 }
 
 #section-content {
-  width: 75%;
-  margin: 1em auto;
+  margin: 0 auto;
+  padding: 1em;
+  max-width: 50em;
+  text-align: center;
+
+  & > div {
+    text-align: left; /* IE - no start or initial */
+    text-align: start;
+    text-align: initial;
+    display: inline-block;
+  }
 }
