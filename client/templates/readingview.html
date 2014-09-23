@@ -42,7 +42,11 @@
 
 <template name="table_of_contents_panel">
   <div id="table-of-contents">
-    {{> sections work.sections }}
+    {{#if work}}
+      {{> sections work.sections }}
+    {{else}}
+      Loading...
+    {{/if}}
   </div>
 </template>
 
