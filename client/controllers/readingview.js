@@ -3,6 +3,10 @@ Meteor.startup(function() {
   Session.setDefault('reading-view-panel-visible', false);
 });
 
+Template.sections.chapter_link = function() {
+  return this.content_id && Router.current().params._id !== this.content_id.toHexString();
+}
+
 Template.readingview.panel_visible = function() {
   return Session.get('reading-view-panel-visible');
 }
