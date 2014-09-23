@@ -24,7 +24,7 @@
 <template name="sections">
   <ul>
     {{#each this}}
-      <li>
+      <li class="{{#if subSections}}heading{{/if}}">
         {{#if content_id}}
           <a href="{{pathFor 'readingview' _id=content_id.toHexString}}">{{name}}</a>
         {{else}}

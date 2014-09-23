@@ -11,8 +11,14 @@
     margin-left: 1em;
   }
 
-  li > a {
-    color: inherit;
+  li {
+    &.heading {
+      font-weight: bold;
+    }
+
+    & > a {
+      color: inherit;
+    }
   }
 }
 
