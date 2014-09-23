@@ -40,12 +40,8 @@
     @include vendor-prefix(display, flex, 1);
     @include vendor-prefix(flex, auto);
 
-    $expanded-width: 12em;
-    & > #sidebar {
-      overflow: hidden;
-      @include vendor-prefix(flex, 0 0 0);
-      @include vendor-prefix(transition, flex-basis 500ms ease, 1);
-      position: relative;
+    & > #hamburger-sidebar {
+      @include hideable-sidebar(12em);
       color: $theme2_fg;
       background-color: $theme2_bg;
 
@@ -53,27 +49,15 @@
         color: $theme2_fg;
       }
 
-      & > #sidebar-content {
-        overflow: auto;
-        position: absolute;
-        width: $expanded-width;
-        height: 100%;
-        right: 0;
+      & > .sidebar-content > li > * {
+        padding: 0.75em;
+        display: block;
+        transition: background-color 300ms ease;
 
-        & > li > * {
-          padding: 0.75em;
-          display: block;
-          transition: background-color 300ms ease;
-
-          &:hover, &.current {
-            background-color: $theme2_hl;
-          }
+        &:hover, &.current {
+          background-color: $theme2_hl;
         }
       }
-    }
-
-    & > #sidebar.open {
-      @include vendor-prefix(flex-basis, $expanded-width);
     }
 
     & > #page-content {

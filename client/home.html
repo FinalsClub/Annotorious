@@ -15,8 +15,8 @@
       </div>
     </div>
     <div id="inner">
-      <div id="sidebar">
-        <ul id="sidebar-content">
+      <div class="sidebar" id="hamburger-sidebar">
+        <ul class="sidebar-content">
           {{> menu_item route="library" icon="book" text="Library" current=current }}
           {{#if show_reading_menu }}
             {{> reading_menu_item panel="table_of_contents_panel" text="Chapter" }}

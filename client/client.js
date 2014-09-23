@@ -17,7 +17,7 @@ UI.registerHelper('setting', function(prop) {
 
 Template.top_and_side.events({
   'click #menubutton': function () {
-     $('#sidebar').toggleClass('open');
+     $('#hamburger-sidebar').toggleClass('open');
   },
   'click .show-panel-button': function() {
     set_panel(this.panel);

@@ -29,6 +29,32 @@ $prefixes: webkit ms moz o;
   #{$name}: #{$arguments};
 }
 
+@mixin hideable-sidebar($expanded-width) {
+  &.sidebar {
+    & > .sidebar-content {
+      width: $expanded-width;
+    }
+
+    &.open {
+      @include vendor-prefix(flex-basis, $expanded-width);
+    }
+  }
+}
+
+.sidebar {
+  overflow: hidden;
+  @include vendor-prefix(flex, 0 0 0);
+  @include vendor-prefix(transition, flex-basis 500ms ease, 1);
+  position: relative;
+
+  & > .sidebar-content {
+    overflow: auto;
+    position: absolute;
+    height: 100%;
+    right: 0;
+  }
+}
+
 @import 'welcome';
 @import 'top_and_side';
 @import 'library';
