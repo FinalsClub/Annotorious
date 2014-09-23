@@ -1,14 +1,14 @@
 <!-- READING VIEW -->
 
 <template name="readingview">
-  <div id="panel-selector" class="{{#if panel_visible}}show{{else}}hide{{/if}}-panel">
-    <div id="side-panel-wrap">
-      <div id="side-panel-content">
+  <div id="panel-selector">
+    <div id="section-sidebar" class="sidebar {{#if panel_visible}}open{{/if}}">
+      <div class="sidebar-content">
         {{> get_panel_contents}}
       </div>
     </div>
-    <div id="content-wrap">
-      <div id="content">
+    <div id="section-content">
+      <div>
         {{#if section}}
           {{> content section}}
         {{else}}
