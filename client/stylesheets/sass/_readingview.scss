@@ -1,5 +1,21 @@
 @import 'palette';
 
+#table-of-contents > ul {
+  padding: 0.5em;
+
+  & > li > ul {
+    margin-bottom: 1em;
+  }
+
+  ul {
+    margin-left: 1em;
+  }
+
+  li > a {
+    color: inherit;
+  }
+}
+
 #section-sidebar {
   @include hideable-sidebar(24em);
   background-color: #ececec;
