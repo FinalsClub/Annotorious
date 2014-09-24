@@ -49,8 +49,23 @@
 </template>
 
 <template name="annotation_list_panel">
-annotations placeholder<br />
-annotations placeholder<br />
+  {{#with annotations}}
+    <ul id="annotations-list">
+      {{#each this}}
+        <li class="annotation">
+          {{#with annotation}}
+            <div class="quote">{{{quote}}}</div>
+            {{#if text}}
+              <hr />
+              <div class="text">{{{text}}}</div>
+            {{/if}}
+          {{/with}}
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    Loading...
+  {{/with}}
 </template>
 
 <template name="type_panel">

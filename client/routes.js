@@ -127,6 +127,7 @@ Router.map(function() {
       return {
         section: section,
         work: work,
+        annotations: Annotations.find({ content_id: section._id }),
         title: work.title
       };
     }
