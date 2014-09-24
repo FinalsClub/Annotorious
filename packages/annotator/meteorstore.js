@@ -83,9 +83,7 @@ MeteorStore.prototype.query = function(queryObj) {
   var field_spec = {};
   field_spec[this.annotationPath] = 1;
 
-  if (this.handle !== null) {
-    this.handle.stop();
-  }
+  this._stop();
 
   function trigger(event, doc) {
     var anno = with_id(get_prop(doc, self.annotationPath), doc._id);
@@ -109,5 +107,13 @@ MeteorStore.prototype.query = function(queryObj) {
   dfd.resolve([], {});
   return dfd.promise();
 }
+
+MeteorStore.prototype._stop = function() {
+  if (this.handle !== null) {
+    this.handle.stop();
+  }
+}
+
+MeteorStore.prototype.destroy = MeteorStore.prototype._stop
 
 module.exports = MeteorStore

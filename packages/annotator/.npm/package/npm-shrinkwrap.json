@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "annotator": {
-      "version": "https://github.com/FinalsClub/annotator/tarball/9d5ba6473fedb2a894674f0851f7fb5af85e9580",
+      "version": "https://github.com/FinalsClub/annotator/tarball/6c100fd411c36221833f01d43f4f19b8cba03100",
       "dependencies": {
         "backbone-events-standalone": {
           "version": "0.2.4"

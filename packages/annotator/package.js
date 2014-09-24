@@ -32,5 +32,5 @@ Package.onUse(function(api) {
 
 Npm.depends({
   // TODO: get the meteor store stuff merged into upstream and switch away from the FinalsClub fork
-  annotator: 'https://github.com/FinalsClub/annotator/tarball/9d5ba6473fedb2a894674f0851f7fb5af85e9580'
+  annotator: 'https://github.com/FinalsClub/annotator/tarball/6c100fd411c36221833f01d43f4f19b8cba03100'
 });
