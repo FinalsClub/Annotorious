@@ -34,6 +34,12 @@ Template.readingview.get_panel_contents = function() {
   return Template[panel];
 }
 
+Template.annotation_list_panel.events({
+  'click .go-to': function(event) {
+    $('#section-content').find('[data-annotation-id=' + this._id + ']')[0].scrollIntoView();
+  },
+});
+
 Template.content.rendered = function() {
   var self = this;
   var store_config = {

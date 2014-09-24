@@ -35,6 +35,22 @@
   & > .quote, & > .text {
     padding: 3px;
   }
+
+  & > .buttons {
+    margin-top: .5em;
+    font-size: 150%;
+    text-align: right;
+
+    & > * {
+      cursor: pointer;
+      padding: 3px;
+
+      &:hover {
+        background-color: lightgrey;
+        border-radius: 3px;
+      }
+    }
+  }
 }
 
 #section-sidebar {
