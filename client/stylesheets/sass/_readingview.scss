@@ -16,6 +16,12 @@
       font-weight: bold;
     }
 
+    &.selected {
+      color: $cyan;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
     & > a {
       color: inherit;
     }
