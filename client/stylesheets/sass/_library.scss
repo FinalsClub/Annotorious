@@ -1,7 +1,12 @@
 @import 'palette';
 
-$block-grid-default-spacing: 0;
 #library {
+  // Override foundation
+  margin: 0;
+  & > li {
+    padding: 0;
+  }
+
   $work-horizontal-spacing: 0.5em;
   .work {
     background-color: $theme5_bg;
