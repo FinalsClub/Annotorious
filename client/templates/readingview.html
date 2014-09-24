@@ -8,11 +8,11 @@
   </div>
   <div class="page-content">
     <div id="section-content">
-      {{#if section}}
-        {{> content section}}
+      {{#with section}}
+        {{> content}}
       {{else}}
         Loading...
-      {{/if}}
+      {{/with}}
     </div>
   </div>
 </template>
@@ -40,11 +40,11 @@
 
 <template name="table_of_contents_panel">
   <div id="table-of-contents">
-    {{#if work}}
-      {{> sections work.sections }}
+    {{#with work}}
+      {{> sections sections }}
     {{else}}
       Loading...
-    {{/if}}
+    {{/with}}
   </div>
 </template>
 
