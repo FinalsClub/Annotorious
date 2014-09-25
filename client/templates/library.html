@@ -39,7 +39,9 @@
       <div class="work-annotations">{{annotationsCount}} annotations</div>
       <div class="work-title">{{title}}</div>
       <div class="work-author-year">{{author}}{{published}}</div>
-      <div class="work-summary">{{summary}}</div>
+      <div class="work-summary">
+        {{#if summary}}{{summary}}{{else}}<br />{{/if}}
+      </div>
     </div>
   </div>
 </template>
