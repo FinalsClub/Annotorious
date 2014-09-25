@@ -62,6 +62,11 @@ Template.library.grid_classes = function() {
   }
 }
 
+Template.library.rendered = function() {
+  // bah
+  $(document).foundation();
+}
+
 Template.work.my_item_mark = function() {
   if (Meteor.userId() === null) return "hide";
   return "fa fa-star-o"

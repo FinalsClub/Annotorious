@@ -55,13 +55,11 @@ $prefixes: webkit ms moz o;
   }
 }
 
+@import 'foundation_bits';
 @import 'welcome';
 @import 'top_and_side';
 @import 'library';
 @import 'readingview';
-
-/* this must be imported last or else none of custom foundation vars work */
-@import ".meteor/local/build/programs/server/assets/packages/matthew_foundation5-sass/foundation";
 
 @media #{$small-only} {
   .hide-on-mobile {

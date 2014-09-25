@@ -18,6 +18,7 @@ ddp@1.0.9-rc0
 deps@1.0.4-rc0
 ejson@1.0.3-rc0
 email@1.0.3-rc0
+ewall:foundation@5.4.0
 fastclick@1.0.0
 follower-livedata@1.0.1
 fourseven:scss@0.9.5
@@ -35,7 +36,6 @@ json@1.0.0
 livedata@1.0.10-rc0
 localstorage@1.0.0
 logging@1.0.3
-matthew:foundation5-sass@0.1.15
 meteor-platform@1.1.1-rc0
 meteor@1.1.1-rc0
 minifiers@1.1.0
