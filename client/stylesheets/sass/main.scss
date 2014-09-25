@@ -1,10 +1,5 @@
 @import 'palette';
 
-body {
-  color: $theme1_fg;
-  background-color: $theme1_bg;
-}
-
 $prefixes: webkit ms moz o;
 @mixin vendor-prefix($name, $arguments, $which: 0) {
   @each $prefix in $prefixes {
