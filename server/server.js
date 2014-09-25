@@ -2,8 +2,8 @@ Meteor.startup(function () {
   // code to run on server at startup
 });
 
-Meteor.publish('works', function() {
-  return Works.find();
+Meteor.publish('library', function() {
+  return Works.find({}, { sections: 0, introEssay: 0 });
 });
 
 Meteor.publish('sectionview', function(content_id) {

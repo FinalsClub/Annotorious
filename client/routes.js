@@ -107,7 +107,7 @@ Router.map(function() {
     path: '/library',
     controller: TopAndSideController,
     waitOn: function() {
-      return Meteor.subscribe('works');
+      return Meteor.subscribe('library');
     },
     title: 'Library'
   });
