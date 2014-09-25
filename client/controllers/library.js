@@ -13,17 +13,6 @@ Template.library.get_works = function() {
   });
 }
 
-var preorderDFSwork = function(work) {
-  return preorderDFSsections(work.sections[0]);
-}
-
-var preorderDFSsections = function(section) {
-  /* depth first search, pre-order, to find first content for the section  */
-  var cid = section.content_id;
-  if (cid === undefined) return preorderDFSsections(section.subSections[0]);
-  else return cid;
-}
-
 Template.library.events({
   'click #sort-title': function(event) {
     Session.set('library-sort', ['title']);
@@ -46,10 +35,27 @@ Template.library.events({
   },
 });
 
+function first_content_section_id(sections) {
+  for (var i = 0; i < sections.length; i++) {
+    var section = sections[i];
+
+    if (section.content_id) {
+      return section.content_id;
+    }
+
+    if (section.subSections) {
+      var result = first_content_section_id(section.subSections);
+      if (result) {
+        return result;
+      }
+    }
+  }
+}
+
 Template.work.events({
   'click': function(event) {
     /* load first content section for the selected work */
-    var cid = preorderDFSwork(Works.findOne(this._id));
+    var cid = first_content_section_id(Works.findOne(this._id).sections);
     Router.go('readingview', {_id: cid.toHexString()});
   },
 });
