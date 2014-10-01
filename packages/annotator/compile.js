@@ -30,8 +30,8 @@ Plugin.registerSourceHandler('annotator.coffee', { archMatching: 'web' }, functi
     })
    .require(pkgdir + '/meteorstore.js', {
       expose: 'annotator-store-meteor'
-    });
-  // TODO: expose xpath-range? jquery?
+    })
+   .require('xpath-range');
 
   plugins.forEach(function(plugin) {
     b.require('./plugin/' + plugin, {

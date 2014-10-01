@@ -65,15 +65,15 @@
 </template>
 
 <template name="annotation_list_panel">
-  {{#with annotations}}
+  {{#if section}}
     <ul id="annotations-list">
-      {{#each this}}
+      {{#each ordered_annotations}}
         {{> annotation}}
       {{/each}}
     </ul>
   {{else}}
     Loading...
-  {{/with}}
+  {{/if}}
 </template>
 
 <template name="type_panel">

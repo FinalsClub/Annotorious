@@ -35,6 +35,48 @@ Template.readingview.get_panel_contents = function() {
   return Template[panel];
 }
 
+Template.annotation_list_panel.ordered_annotations = function() {
+  var container = document.createElement('div');
+  var root = document.createElement('div');
+  root.appendChild(container);
+  container.innerHTML = this.section.html;
+
+  var SerializedRange = require('xpath-range').Range.SerializedRange;
+  function get_start(doc) {
+    return new SerializedRange(doc.annotation.ranges[0]).normalize(root).start;
+  }
+
+  var cursor = Annotations.find({ content_id: this.section._id });
+  /* Setting cursor.sorter like this is not officially supported!
+   * It is very possible that this will break at some point.
+   * If possible, please replace with an official way of passing
+   * a comparator to a cursor.
+   */
+  cursor.sorter = {
+    getComparator: function() {
+      return function(a, b) {
+        var a_start = get_start(a), b_start = get_start(b);
+
+        if (a_start === b_start) {
+          return 0;
+        }
+
+        var compare = a_start.compareDocumentPosition(b_start);
+
+        if (compare & Node.DOCUMENT_POSITION_PRECEDING) {
+          return 1;
+        } else if (compare & Node.DOCUMENT_POSITION_FOLLOWING) {
+          return -1;
+        } else {
+          throw new Error('Neither preceding nor following???');
+        }
+      }
+    }
+  };
+
+  return cursor;
+}
+
 Template.annotation.events({
   'click .go-to': function(event) {
     $('#section-content').find('[data-annotation-id=' + this._id + ']')[0].scrollIntoView();
