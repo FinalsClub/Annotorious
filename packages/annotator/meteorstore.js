@@ -89,6 +89,8 @@ MeteorStore.prototype.query = function(queryObj) {
     self.core.trigger(event, doc);
   }
 
+  var handlingInitialDocuments = true;
+  var initialDocuments = [];
   this.handle = this.collection.find(queryObj, {
     fields: field_spec,
     transform: function(doc) {
@@ -96,7 +98,11 @@ MeteorStore.prototype.query = function(queryObj) {
     }
   }).observe({
     added: function(doc) {
-      trigger('annotationCreated', doc);
+      if (handlingInitialDocuments) {
+        initialDocuments.push(doc);
+      } else {
+        trigger('annotationCreated', doc);
+      }
     },
     changed: function(new_doc, old_doc) {
       trigger('annotationUpdated', new_doc);
@@ -105,10 +111,10 @@ MeteorStore.prototype.query = function(queryObj) {
       trigger('annotationDeleted', old);
     }
   });
+  handlingInitialDocuments = false;
 
-  // TODO: send initial results to the deferred instead of using annotationCreated?
   var dfd = $.Deferred();
-  dfd.resolve([], {});
+  dfd.resolve(initialDocuments, {});
   return dfd.promise();
 }
 
