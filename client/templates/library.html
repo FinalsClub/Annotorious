@@ -1,5 +1,9 @@
 <!-- LIBRARY PAGE -->
 
+<template name="sort_option">
+  <li><a href="#" class="sort-option">{{text}}</a></li>
+</template>
+
 <template name="library">
   <div class="page-content">
     <nav class="top-bar" data-topbar>
@@ -7,10 +11,10 @@
         <ul class="left">
           <li class="has-dropdown"><a href="#">Sort</a>
             <ul class="dropdown">
-              <li><a href="#" id="sort-title">Title (A-Z)</a></li>
-              <li><a href="#" id="sort-annos">Annotations (most to least)</a></li>
-              <li><a href="#" id="sort-author">Author (A-Z)</a></li>
-              <li><a href="#" id="sort-date">Publication year (most recent to oldest)</a></li>
+              {{> sort_option text="Title (A-Z)" sort="title" }}
+              {{> sort_option text="Annotations (most to least)" sort="annos" }}
+              {{> sort_option text="Author (A-Z)" sort="author" }}
+              {{> sort_option text="Publication year (most recent to oldest)" sort="date" }}
             </ul>
           </li>
           <li class="has-dropdown"><a href="#">Filter</a>

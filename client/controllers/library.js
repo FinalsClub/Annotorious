@@ -1,5 +1,5 @@
 Template.library.get_works = function() {
-  Session.setDefault('library-sort', ['title']);
+  Session.setDefault('library-sort', 'title');
 
   return Works.find({}, {
     fields: {
@@ -9,22 +9,18 @@ Template.library.get_works = function() {
       annotationsCount: 1,
       year: 1
     },
-    sort: Session.get('library-sort')
+    sort: {
+      title: ['title'],
+      annos: [['annotationsCount', 'desc'], 'title'],
+      author: ['author', 'title'],
+      date: [['year', 'desc'], 'title']
+    }[Session.get('library-sort')]
   });
 }
 
 Template.library.events({
-  'click #sort-title': function(event) {
-    Session.set('library-sort', ['title']);
-  },
-  'click #sort-annos': function(event) {
-    Session.set('library-sort', [['annotationsCount','desc'], 'title']);
-  },
-  'click #sort-author': function(event) {
-    Session.set('library-sort', ['author', 'title']);
-  },
-  'click #sort-date': function(event) {
-    Session.set('library-sort', [['year','desc'], 'title']);
+  'click .sort-option': function(event) {
+    Session.set('library-sort', this.sort);
   },
   'click #library-mode-toggle': function(event) {
     if (Session.equals('library-mode', 'grid')) {
