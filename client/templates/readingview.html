@@ -48,23 +48,27 @@
   </div>
 </template>
 
+<template name="annotation">
+  <li class="annotation">
+    {{#with annotation}}
+      <div class="quote">{{{quote}}}</div>
+      {{#if text}}
+        <hr />
+        <div class="text">{{{text}}}</div>
+      {{/if}}
+    {{/with}}
+
+    <div class="buttons">
+      <i class="fa fa-sign-in go-to" title="Scroll this annotation into view"></i>
+    </div>
+  </li>
+</template>
+
 <template name="annotation_list_panel">
   {{#with annotations}}
     <ul id="annotations-list">
       {{#each this}}
-        <li class="annotation">
-          {{#with annotation}}
-            <div class="quote">{{{quote}}}</div>
-            {{#if text}}
-              <hr />
-              <div class="text">{{{text}}}</div>
-            {{/if}}
-          {{/with}}
-
-          <div class="buttons">
-            <i class="fa fa-sign-in go-to" title="Scroll this annotation into view"></i>
-          </div>
-        </li>
+        {{> annotation}}
       {{/each}}
     </ul>
   {{else}}

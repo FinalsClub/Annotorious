@@ -1,6 +1,7 @@
 Meteor.startup(function() {
   Session.setDefault('reading-view-panel', null);
   Session.setDefault('reading-view-panel-visible', false);
+  Session.setDefault('reading-view-last-annotation', null);
 });
 
 /* This function is weird. Here's the question it essentially answers
@@ -34,10 +35,32 @@ Template.readingview.get_panel_contents = function() {
   return Template[panel];
 }
 
-Template.annotation_list_panel.events({
+Template.annotation.events({
   'click .go-to': function(event) {
     $('#section-content').find('[data-annotation-id=' + this._id + ']')[0].scrollIntoView();
   },
+});
+
+Template.annotation.rendered = function() {
+  var self = this;
+
+  this.autorun(function() {
+    if (!Session.equals('reading-view-last-annotation', self.data._id)) {
+      return;
+    }
+
+    self.firstNode.scrollIntoView();
+  });
+}
+
+Template.content.events({
+  'click .annotator-hl': function(event) {
+    Session.set('reading-view-panel', 'annotation_list_panel');
+    Session.set('reading-view-panel-visible', true);
+
+    var id = new Meteor.Collection.ObjectID($(event.currentTarget).data('annotation-id'));
+    Session.set('reading-view-last-annotation', id);
+  }
 });
 
 Template.content.rendered = function() {
