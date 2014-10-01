@@ -1,5 +1,5 @@
 Template.library.get_works = function() {
-  Session.setDefault('library-sort', 'title');
+  Session.setDefault('library-sort', 'annos');
 
   return Works.find({}, {
     fields: {
