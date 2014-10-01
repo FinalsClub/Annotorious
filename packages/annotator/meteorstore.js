@@ -86,11 +86,15 @@ MeteorStore.prototype.query = function(queryObj) {
   this._stop();
 
   function trigger(event, doc) {
-    var anno = with_id(get_prop(doc, self.annotationPath), doc._id);
-    self.core.trigger(event, anno);
+    self.core.trigger(event, doc);
   }
 
-  this.handle = this.collection.find(queryObj, { fields: field_spec }).observe({
+  this.handle = this.collection.find(queryObj, {
+    fields: field_spec,
+    transform: function(doc) {
+      return with_id(get_prop(doc, self.annotationPath), doc._id);
+    }
+  }).observe({
     added: function(doc) {
       trigger('annotationCreated', doc);
     },
