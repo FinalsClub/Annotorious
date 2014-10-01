@@ -15,7 +15,8 @@ Annotations = new Meteor.Collection("annotations", {
   idGeneration: 'MONGO',
   schema: {
     content_id: {
-      type: Meteor.Collection.ObjectID
+      type: Meteor.Collection.ObjectID,
+      index: true
     },
     annotation: {
       type: Object,
