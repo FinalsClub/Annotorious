@@ -2,7 +2,7 @@
   "dependencies": [
     [
       "meteor",
-      "1.1.1-rc0"
+      "1.1.1"
     ],
     [
       "underscore",
@@ -15,6 +15,6 @@
       {}
     ]
   ],
-  "toolVersion": "meteor-tool@1.0.31-rc5",
+  "toolVersion": "meteor-tool@1.0.33",
   "format": "1.0"
 }
