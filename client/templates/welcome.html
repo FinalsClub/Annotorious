@@ -48,7 +48,7 @@
 </template>
 
 <template name="login">
-  <form id="login-form" action="action">
+  <form id="login-form">
     <div>
       <input type="email" id="login-email" />
       <input type="password" id="login-password" />
@@ -59,7 +59,7 @@
 </template>
 
 <template name="register">
-  <form id="register-form" action="action">
+  <form id="register-form">
     <div>
       <label>Username: </label><input type="username" id="account-username" />
       <label>Email: </label><input type="email" id="account-email" />
@@ -71,14 +71,14 @@
 
 <template name="reset">
   {{#if resetPassword}}
-    <form id="reset-form" action="action">
+    <form id="reset-form">
       <div>
         <input type="text" id="new-password-password" />
         <input type="submit" value="Change Password" />
       </div>
     </form>
   {{else}}
-    <form id="recovery-form" action="action">
+    <form id="recovery-form">
       <div>
         <input type="text" id="recovery-email" />
         <input type="submit" value="Send Reset Instruction" />
