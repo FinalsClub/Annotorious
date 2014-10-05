@@ -1,7 +1,3 @@
-function trimInput(val) {
-  return val.replace(/^\s*|\s*$/g, "");
-}
-
 function isValidPassword(val) {
   return val.length >=6 ? true: false;
 }
@@ -46,12 +42,9 @@ Template.login.events({
 Template.register.events({
   'submit #register-form' : function(event, target) {
     event.preventDefault();
-    var email = target.find('#account-email').value;
+    var email = target.find('#account-email').value.trim();
     var password = target.find('#account-password').value;
     var username = target.find('#account-username').value;
-
-    // trimming data
-    email = trimInput(email);
 
     //TODO: validate input
     if (isValidPassword(password)) { // && other validatidation
@@ -78,7 +71,7 @@ Template.reset.helpers({
 Template.reset.events({
   'submit #recovery-form': function(event, target) {
     event.preventDefault();
-    var email = trimInput(target.find('#recovery-email').value)
+    var email = target.find('#recovery-email').value.trim();
 
     if (email && email.length > 0 && isEmail(email)) {
       Session.set("loading", true);
