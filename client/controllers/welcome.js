@@ -23,7 +23,7 @@ Template.login.events({
     event.preventDefault();
     // retrieve the input field values
     var email = target.find('#login-email').value;
-    var password = target.find('login-password').value;
+    var password = target.find('#login-password').value;
 
     // if valudation passes, supply the appropraite fields to 
     // Meteor.loginWithPassword
