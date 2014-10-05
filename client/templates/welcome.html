@@ -38,11 +38,11 @@
 <template name="point_to_authenticate">
   <div id="welcome_links">
     <div id="explore_library">
-      <a id="proceed_without_login" href="/library">Explore {{setting 'project'}}</a>
+      <a id="proceed_without_login" href="{{pathFor 'library' }}">Explore {{setting 'project'}}</a>
     </div>
     <div>
-      <a id="point_to_authenticate_log_in" href="/login">Log In</a> or
-      <a id="point_to_authenticate_create_account" href="/register">Create account</a>
+      <a id="point_to_authenticate_log_in" href="{{pathFor 'login' }}">Log In</a> or
+      <a id="point_to_authenticate_create_account" href="{{pathFor 'register' }}">Create account</a>
     </div>
   </div>
 </template>
