@@ -31,7 +31,7 @@ Template.login.events({
 
     // if valudation passes, supply the appropraite fields to 
     // Meteor.loginWithPassword
-    Mether.loginWithPassword(email, password, function(err) {
+    Meteor.loginWithPassword(email, password, function(err) {
         if (err) {
           alert('account login information not valid.  Please retry or reset your password.');
         } else {
