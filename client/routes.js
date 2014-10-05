@@ -155,8 +155,7 @@ Router.map(function() {
   });
 
   var self = this;
-  _.chain(welcome_routes).keys().each(function(name) {
-    var obj = welcome_routes[name];
+  _.each(welcome_routes, function(obj, name) {
     obj.layoutTemplate = 'welcome';
     self.route(name, obj);
   });
