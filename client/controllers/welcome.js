@@ -1,12 +1,12 @@
-var trimInput = function(val) {
+function trimInput(val) {
   return val.replace(/^\s*|\s*$/g, "");
-};
+}
 
-var isValidPassword = function(val) {
+function isValidPassword(val) {
   return val.length >=6 ? true: false;
-};
+}
 
-var isEmail = function(email) {
+function isEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email); 
 }
