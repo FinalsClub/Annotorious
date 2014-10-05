@@ -52,7 +52,6 @@ Template.register.events({
 
     // trimming data
     email = trimInput(email);
-    username = trimInput(username);
 
     //TODO: validate input
     if (isValidPassword(password)) { // && other validatidation
