@@ -93,6 +93,10 @@ Router.map(function() {
     register: {
       path: "/register",
       title: 'Register'
+    },
+    reset: {
+      path: "/reset",
+      title: "Reset Password"
     }
   };
 

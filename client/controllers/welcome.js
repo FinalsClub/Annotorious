@@ -40,9 +40,6 @@ Template.login.events({
         }
       });
     return false
-  },
-  'click #resetPassword': function(){
-    Session.set('welcome_which_page', 'reset');
   }
 });
 
