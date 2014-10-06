@@ -19,12 +19,13 @@ if (Accounts._resetPasswordToken) {
  Responds to login screen events
  */
 Template.login.events({
-  'submit #login-form': function(event, target) {
+  'submit #login-form': function(event) {
     event.preventDefault();
+    var target = event.currentTarget;
 
     // retrieve the input field values
-    var email = target.find('#login-email').value;
-    var password = target.find('#login-password').value;
+    var email = target.elements['login-email'].value;
+    var password = target.elements['login-password'].value;
 
     // if valudation passes, supply the appropraite fields to
     // Meteor.loginWithPassword
@@ -41,12 +42,13 @@ Template.login.events({
 });
 
 Template.register.events({
-  'submit #register-form': function(event, target) {
+  'submit #register-form': function(event) {
     event.preventDefault();
+    var target = event.currentTarget;
 
-    var email = target.find('#account-email').value.trim();
-    var password = target.find('#account-password').value;
-    var username = target.find('#account-username').value;
+    var email = target.elements['account-email'].value.trim();
+    var password = target.elements['account-password'].value;
+    var username = target.elements['account-username'].value;
 
     //TODO: validate input
     if (isValidPassword(password)) { // && other validatidation
@@ -70,10 +72,11 @@ Template.reset.helpers({
 });
 
 Template.reset.events({
-  'submit #recovery-form': function(event, target) {
+  'submit #recovery-form': function(event) {
     event.preventDefault();
+    var target = event.currentTarget;
 
-    var email = target.find('#recovery-email').value.trim();
+    var email = target.elements['recovery-email'].value.trim();
 
     if (email && email.length > 0 && isEmail(email)) {
       Session.set("loading", true);
