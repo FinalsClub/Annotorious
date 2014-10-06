@@ -50,7 +50,9 @@
 <template name="login">
   <form id="login-form">
     <div>
+      <label for="login-user">Username or Email address</label>
       <input type="text" id="login-user" />
+      <label for="login-password">Password</label>
       <input type="password" id="login-password" />
       <input type="submit" id="login-button" value="Sign in" />
     </div>
@@ -76,6 +78,7 @@
   {{#if resetPassword}}
     <form id="reset-form">
       <div>
+        <label for="new-password-password">New password</label>
         <input type="text" id="new-password-password" />
         <input type="submit" value="Change Password" />
       </div>
@@ -83,6 +86,7 @@
   {{else}}
     <form id="recovery-form">
       <div>
+        <label for="recovery-email">Recovery email</label>
         <input type="text" id="recovery-email" />
         <input type="submit" value="Send Reset Instruction" />
       </div>
