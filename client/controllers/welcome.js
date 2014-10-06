@@ -24,12 +24,12 @@ Template.login.events({
     var target = event.currentTarget;
 
     // retrieve the input field values
-    var email = target.elements['login-email'].value;
+    var user = target.elements['login-user'].value;
     var password = target.elements['login-password'].value;
 
     // if valudation passes, supply the appropraite fields to
     // Meteor.loginWithPassword
-    Meteor.loginWithPassword(email, password, function(err) {
+    Meteor.loginWithPassword(user, password, function(err) {
       if (err) {
         alert('account login information not valid.  Please retry or reset your password.');
       } else {
