@@ -1,5 +1,8 @@
 function isValidPassword(val) {
-  return val.length >=6 ? true: false;
+  if (val.length < 6)
+    return "Passwords must be at least 6 characters long.";
+
+  return null;
 }
 
 function isEmail(email) {
@@ -50,8 +53,8 @@ Template.register.events({
     var password = target.elements['account-password'].value;
     var username = target.elements['account-username'].value;
 
-    //TODO: validate input
-    if (isValidPassword(password)) { // && other validatidation
+    var validation = isValidPassword(password);
+    if (validation === null) {
       Accounts.createUser({ username: username, email: email, password: password }, function(err) {
         if (err) {
           alert('Account creation failed, please try again: ' + err.reason)
@@ -60,7 +63,7 @@ Template.register.events({
         }
       });
     } else {
-      alert('password must be greater than six characters long')
+      alert(validation);
     };
   }
 });
