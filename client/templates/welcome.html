@@ -49,49 +49,41 @@
 
 <template name="login">
   <form id="login-form">
-    <div>
-      <label for="login-user">Username or Email address</label>
-      <input type="text" id="login-user" placeholder="Username or Email"/>
-      <label for="login-password">Password</label>
-      <input type="password" id="login-password" placeholder="Password"/>
-      <input type="submit" id="login-button" value="Sign in" />
-    </div>
+    <label for="login-user">Username or Email address</label>
+    <input type="text" id="login-user" placeholder="Username or Email"/>
+    <label for="login-password">Password</label>
+    <input type="password" id="login-password" placeholder="Password"/>
+    <input type="submit" id="login-button" value="Sign in" />
   </form>
   <a id="resetPassword" href="{{pathFor 'reset' }}">Reset Password</a>
 </template>
 
 <template name="register">
   <form id="register-form">
-    <div>
-      <label for="account-username">Username</label>
-      <input type="text" id="account-username" placeholder="Username"/>
-      <label for="account-email">Email address</label>
-      <input type="email" id="account-email" placeholder="Email"/>
-      <label for="account-password">Password</label>
-      <input type="password" id="account-password" placeholder="Password"/>
-      <label for="account-password-again">Password (again)</label>
-      <input type="password" id="account-password-again" placeholder="Password"/>
-      <input type="submit" id="create-account" value="Create an Account" />
-    </div>
+    <label for="account-username">Username</label>
+    <input type="text" id="account-username" placeholder="Username"/>
+    <label for="account-email">Email address</label>
+    <input type="email" id="account-email" placeholder="Email"/>
+    <label for="account-password">Password</label>
+    <input type="password" id="account-password" placeholder="Password"/>
+    <label for="account-password-again">Password (again)</label>
+    <input type="password" id="account-password-again" placeholder="Password"/>
+    <input type="submit" id="create-account" value="Create an Account" />
   </form>
 </template>
 
 <template name="reset">
   {{#if resetPassword}}
     <form id="reset-form">
-      <div>
-        <label for="new-password-password">New password</label>
-        <input type="text" id="new-password-password" placeholder="Password"/>
-        <input type="submit" value="Change Password" />
-      </div>
+      <label for="new-password-password">New password</label>
+      <input type="text" id="new-password-password" placeholder="Password"/>
+      <input type="submit" value="Change Password" />
     </form>
   {{else}}
     <form id="recovery-form">
-      <div>
-        <label for="recovery-email">Recovery email</label>
-        <input type="text" id="recovery-email" placeholder="Email"/>
-        <input type="submit" value="Send Reset Instruction" />
-      </div>
+      <label for="recovery-email">Recovery email</label>
+      <input type="text" id="recovery-email" placeholder="Email"/>
+      <input type="submit" value="Send Reset Instruction" />
     </form>
   {{/if}}
 </template>
