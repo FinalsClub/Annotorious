@@ -9,8 +9,6 @@
       <div>
         {{> yield }}
       </div>
-      <hr/>
-      {{> point_to_authenticate}}
     </div>
   </div>
 </template>
@@ -33,9 +31,7 @@
       </li>
     {{/each}}
   </ul>
-</template>
-
-<template name="point_to_authenticate">
+  <hr/>
   <div id="welcome_links">
     <div id="explore_library">
       <a id="proceed_without_login" href="{{pathFor 'library' }}">Explore {{setting 'project'}}</a>
