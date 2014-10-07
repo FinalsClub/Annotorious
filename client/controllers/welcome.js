@@ -1,5 +1,8 @@
-function isValidPassword(val) {
-  if (val.length < 6)
+function isValidPassword(p1, p2) {
+  if (p1 !== p2)
+    return "Passwords to not match!";
+
+  if (p1.length < 6)
     return "Passwords must be at least 6 characters long.";
 
   return null;
@@ -51,9 +54,10 @@ Template.register.events({
 
     var email = target.elements['account-email'].value.trim();
     var password = target.elements['account-password'].value;
+    var password_again = target.elements['account-password-again'].value;
     var username = target.elements['account-username'].value;
 
-    var validation = isValidPassword(password);
+    var validation = isValidPassword(password, password_again);
     if (validation === null) {
       Accounts.createUser({ username: username, email: email, password: password }, function(err) {
         if (err) {
