@@ -48,10 +48,10 @@
     <label for="login-user">Username or Email address</label>
     <input type="text" id="login-user" placeholder="Username or Email"/>
     <label for="login-password">Password</label>
+    <a id="resetPassword" tabindex="-1" href="{{pathFor 'reset' }}">Forgot?</a>
     <input type="password" id="login-password" placeholder="Password"/>
     <input type="submit" id="login-button" value="Sign in" />
   </form>
-  <a id="resetPassword" href="{{pathFor 'reset' }}">Reset Password</a>
 </template>
 
 <template name="register">
