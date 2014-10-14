@@ -52,13 +52,22 @@
         /* invert colors */
         display: inline-block;
         background-color: $theme3_fg;
-        border-radius: 0.5em;
+        border-radius: 0.25em;
         margin-bottom: 1em;
-        padding: 0.75em;
-        width: 12em;
+        padding: 0.5em 1em;
+        font-size: larger;
 
         a {
           color: $theme3_bg;
+          font-weight: normal;
+        }
+
+        &:hover, &:focus {
+          box-shadow: 0 0 10px #888;
+        }
+
+        &:active {
+          box-shadow: 0 0 10px #666;
         }
       }
     }
