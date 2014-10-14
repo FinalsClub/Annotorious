@@ -13,9 +13,9 @@ function isEmail(email) {
   return re.test(email);
 }
 
-if (Accounts._resetPasswordToken) {
-  Session.set('resetPassword', Accounts._resetPasswordToken);
-}
+Accounts.onResetPasswordLink(function(token) {
+  Session.set('resetPassword', token);
+});
 
 /*
  WELCOME TEMPLATE
