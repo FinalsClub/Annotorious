@@ -40,7 +40,7 @@ Template.login.events({
         alert('account login information not valid.  Please retry or reset your password.');
       } else {
         console.log('you are now logged in');
-        Router.go('/library');
+        Router.go('library');
       }
     });
     return false
@@ -63,7 +63,7 @@ Template.register.events({
         if (err) {
           alert('Account creation failed, please try again: ' + err.reason)
         } else {
-          Router.go('/library');
+          Router.go('library');
         }
       });
     } else {
