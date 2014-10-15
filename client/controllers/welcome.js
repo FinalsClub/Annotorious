@@ -100,7 +100,7 @@ Template.reset.events({
         alert('Failed to send password reset email to ' +
               email + ': ' + err.reason + '. Please try again.');
       } else {
-        $('#recovery-form').append('<p>Password reset email sent to ' + email + '.</p>');
+        $(target).append('<p>Password reset email sent to ' + email + '.</p>');
       }
     });
   }
