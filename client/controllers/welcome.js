@@ -61,21 +61,22 @@ Template.register.events({
 
     var password = target.elements['account-password'].value;
     var password_again = target.elements['account-password-again'].value;
+    var validation = isValidPassword(password, password_again);
+    if (validation !== null) {
+      alert(validation);
+      return;
+    }
+
     var username = target.elements['account-username'].value;
 
-    var validation = isValidPassword(password, password_again);
-    if (validation === null) {
-      Accounts.createUser({ username: username, email: email, password: password }, function(err) {
-        if (err) {
-          alert('Account creation failed: ' + err.reason + '. Please try again.')
-        } else {
-          Router.go('library');
-          alert('Account created! You are now logged in.');
-        }
-      });
-    } else {
-      alert(validation);
-    };
+    Accounts.createUser({ username: username, email: email, password: password }, function(err) {
+      if (err) {
+        alert('Account creation failed: ' + err.reason + '. Please try again.')
+      } else {
+        Router.go('library');
+        alert('Account created! You are now logged in.');
+      }
+    });
   }
 });
 
