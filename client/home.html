@@ -30,7 +30,7 @@
           {{> menu_item route="about" icon="question" text=about_text current=current }}
           <li>
             {{#if currentUser}}
-              <a href="#">Log out</a>
+              <a href="#" id="log-out-button">Log out</a>
             {{else}}
               <a href="{{pathFor 'login'}}">Log in</a>
             {{/if}}

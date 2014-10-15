@@ -21,6 +21,13 @@ Template.top_and_side.events({
   },
   'click .show-panel-button': function() {
     set_panel(this.panel);
+  },
+  'click #log-out-button': function() {
+    Meteor.logout(function(err) {
+      if (err) {
+        alert('Failed to log out: ' + err.reason);
+      }
+    });
   }
 });
 
