@@ -53,6 +53,11 @@ Template.register.events({
     var target = event.currentTarget;
 
     var email = target.elements['account-email'].value.trim();
+    if (!isEmail(email)) {
+      alert('Please enter a valid email address!');
+      return;
+    }
+
     var password = target.elements['account-password'].value;
     var password_again = target.elements['account-password-again'].value;
     var username = target.elements['account-username'].value;
@@ -84,18 +89,19 @@ Template.reset.events({
     var target = event.currentTarget;
 
     var email = target.elements['recovery-email'].value.trim();
-
-    if (email && email.length > 0 && isEmail(email)) {
-      Session.set("loading", true);
-      Accounts.forgotPassword({ email: email }, function(err) {
-        if (err) {
-          alert('Failed to send password reset email to ' +
-                email + ': ' + err.reason + '. Please try again.');
-        } else {
-          $('#recovery-form').append('<p>Password reset email sent to ' + email + '.</p>');
-        }
-      })
+    if (!isEmail(email)) {
+      alert('Please enter a valid email address!');
+      return;
     }
 
+    Session.set("loading", true);
+    Accounts.forgotPassword({ email: email }, function(err) {
+      if (err) {
+        alert('Failed to send password reset email to ' +
+              email + ': ' + err.reason + '. Please try again.');
+      } else {
+        $('#recovery-form').append('<p>Password reset email sent to ' + email + '.</p>');
+      }
+    })
   }
 })
