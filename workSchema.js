@@ -23,7 +23,7 @@ Annotations = new Meteor.Collection("annotations", {
       blackbox: true
     }
   }
-})
+});
 
 Section = new SimpleSchema({
   name: {
@@ -40,7 +40,7 @@ Section = new SimpleSchema({
       _.each(this.value, function(section) {
         if (!Match.test(this.value, Section))
           return "invalidSection";
-      })
+      });
     }
   },
   content_id: {

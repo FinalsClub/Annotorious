@@ -30,7 +30,7 @@ function MeteorStore(options) {
 
 MeteorStore.prototype.configure = function(configs) {
   this.core = configs.core;
-}
+};
 
 MeteorStore.prototype.create = function(annotation) {
   var dfd = $.Deferred();
@@ -44,7 +44,7 @@ MeteorStore.prototype.create = function(annotation) {
   });
 
   return dfd.promise();
-}
+};
 
 MeteorStore.prototype.update = function(annotation) {
   var dfd = $.Deferred();
@@ -61,7 +61,7 @@ MeteorStore.prototype.update = function(annotation) {
   });
 
   return dfd.promise();
-}
+};
 
 MeteorStore.prototype.delete = function(annotation) {
   var dfd = $.Deferred();
@@ -75,7 +75,7 @@ MeteorStore.prototype.delete = function(annotation) {
   });
 
   return dfd.promise();
-}
+};
 
 MeteorStore.prototype.query = function(queryObj) {
   var self = this;
@@ -116,14 +116,14 @@ MeteorStore.prototype.query = function(queryObj) {
   var dfd = $.Deferred();
   dfd.resolve(initialDocuments, {});
   return dfd.promise();
-}
+};
 
 MeteorStore.prototype._stop = function() {
   if (this.handle !== null) {
     this.handle.stop();
   }
-}
+};
 
-MeteorStore.prototype.destroy = MeteorStore.prototype._stop
+MeteorStore.prototype.destroy = MeteorStore.prototype._stop;
 
-module.exports = MeteorStore
+module.exports = MeteorStore;

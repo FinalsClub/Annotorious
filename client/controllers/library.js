@@ -16,7 +16,7 @@ Template.library.get_works = function() {
       date: [['year', 'desc'], 'title']
     }[Session.get('library-sort')]
   });
-}
+};
 
 Template.library.events({
   'click .sort-option': function(event) {
@@ -58,21 +58,21 @@ Template.work.events({
 
 Template.library.grid_classes = function() {
   if (Session.equals('library-mode', 'grid')) {
-    return 'grid small-block-grid-1 medium-block-grid-2 large-block-grid-3'
+    return 'grid small-block-grid-1 medium-block-grid-2 large-block-grid-3';
   } else  {
     return '';
   }
-}
+};
 
 Template.library.rendered = function() {
   // bah
   $(document).foundation();
-}
+};
 
 Template.work.my_item_mark = function() {
   if (Meteor.userId() === null) return "hide";
-  return "fa fa-star-o"
-}
+  return "fa fa-star-o";
+};
 
 Template.work.published = function() {
   if (this.year !== null) {
@@ -80,4 +80,4 @@ Template.work.published = function() {
   } else {
     return '';
   }
-}
+};

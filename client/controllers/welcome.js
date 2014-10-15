@@ -71,7 +71,7 @@ Template.register.events({
 
     Accounts.createUser({ username: username, email: email, password: password }, function(err) {
       if (err) {
-        alert('Account creation failed: ' + err.reason + '. Please try again.')
+        alert('Account creation failed: ' + err.reason + '. Please try again.');
       } else {
         Router.go('library');
         alert('Account created! You are now logged in.');
@@ -105,6 +105,6 @@ Template.reset.events({
       } else {
         $('#recovery-form').append('<p>Password reset email sent to ' + email + '.</p>');
       }
-    })
+    });
   }
-})
+});

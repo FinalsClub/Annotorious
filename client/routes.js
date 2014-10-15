@@ -29,7 +29,7 @@ EnhancedDataController = RouteController.extend({
     } else if ('afterData' in options && this.ready()) {
       prop = 'afterData';
     } else if ('data' in options) {
-      prop = 'data'
+      prop = 'data';
     }
 
     var data = options[prop];

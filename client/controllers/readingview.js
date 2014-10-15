@@ -24,7 +24,7 @@ Template.sections.chapter_link = _.partial(foobar, false);
 
 Template.readingview.panel_visible = function() {
   return Session.get('reading-view-panel-visible');
-}
+};
 
 Template.readingview.get_panel_contents = function() {
   var panel = Session.get('reading-view-panel');
@@ -33,7 +33,7 @@ Template.readingview.get_panel_contents = function() {
   }
 
   return Template[panel];
-}
+};
 
 Template.annotation_list_panel.ordered_annotations = function() {
   var container = document.createElement('div');
@@ -70,12 +70,12 @@ Template.annotation_list_panel.ordered_annotations = function() {
         } else {
           throw new Error('Neither preceding nor following???');
         }
-      }
+      };
     }
   };
 
   return cursor;
-}
+};
 
 Template.annotation.events({
   'click .go-to': function(event) {
@@ -93,7 +93,7 @@ Template.annotation.rendered = function() {
 
     self.firstNode.scrollIntoView();
   });
-}
+};
 
 Template.content.events({
   'click .annotator-hl': function(event) {
@@ -114,7 +114,7 @@ Template.content.rendered = function() {
       return {
         content_id: self.data._id,
         annotation: annotation
-      }
+      };
     }
   };
 
@@ -130,8 +130,8 @@ Template.content.rendered = function() {
 
   this.annotator.attach(elem);
   this.annotator.annotations.load({ content_id: this.data._id });
-}
+};
 
 Template.content.destroyed = function() {
   this.annotator.destroy();
-}
+};
