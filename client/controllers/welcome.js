@@ -41,6 +41,7 @@ Template.login.events({
       } else {
         console.log('you are now logged in');
         Router.go('library');
+        alert('Login successful!');
       }
     });
     return false
@@ -69,6 +70,7 @@ Template.register.events({
           alert('Account creation failed: ' + err.reason + '. Please try again.')
         } else {
           Router.go('library');
+          alert('Account created! You are now logged in.');
         }
       });
     } else {
