@@ -39,12 +39,10 @@ Template.login.events({
       if (err) {
         alert('Login failed: ' + err.reason + '. Please retry or reset your password.');
       } else {
-        console.log('you are now logged in');
         Router.go('library');
         alert('Login successful!');
       }
     });
-    return false
   }
 });
 
@@ -81,7 +79,7 @@ Template.register.events({
 });
 
 Template.reset.helpers({
-  resetPassword: function(target) {
+  resetPassword: function() {
     return Session.get('resetPassword');
   }
 });
@@ -97,7 +95,6 @@ Template.reset.events({
       return;
     }
 
-    Session.set("loading", true);
     Accounts.forgotPassword({ email: email }, function(err) {
       if (err) {
         alert('Failed to send password reset email to ' +
