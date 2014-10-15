@@ -37,7 +37,7 @@ Template.login.events({
     // Meteor.loginWithPassword
     Meteor.loginWithPassword(user, password, function(err) {
       if (err) {
-        alert('account login information not valid.  Please retry or reset your password.');
+        alert('Login failed: ' + err.reason + '. Please retry or reset your password.');
       } else {
         console.log('you are now logged in');
         Router.go('library');
@@ -61,7 +61,7 @@ Template.register.events({
     if (validation === null) {
       Accounts.createUser({ username: username, email: email, password: password }, function(err) {
         if (err) {
-          alert('Account creation failed, please try again: ' + err.reason)
+          alert('Account creation failed: ' + err.reason + '. Please try again.')
         } else {
           Router.go('library');
         }
@@ -89,7 +89,8 @@ Template.reset.events({
       Session.set("loading", true);
       Accounts.forgotPassword({ email: email }, function(err) {
         if (err) {
-          alert(err.reason + ' for ' + email + '.  Please try again.');
+          alert('Failed to send password reset email to ' +
+                email + ': ' + err.reason + '. Please try again.');
         } else {
           $('#recovery-form').append('<p>Password reset email sent to ' + email + '.</p>');
         }
