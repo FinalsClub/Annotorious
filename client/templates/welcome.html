@@ -15,10 +15,10 @@
 
 <template name="welcome_header">
   <div id="welcome_header">
-    <div class="logo" id="welcome_header_logo" ><img src="{{setting 'logo'}}" /></div>
+    <div id="welcome_header_logo"><img src="{{setting 'logo'}}" /></div>
     {{! project title comes from document title above }}
-    <div class="project" id="welcome_header_project">{{setting 'project'}}</div>
-    <div class="motto" id="welcome_header_motto">{{setting 'motto'}}</div>
+    <div id="welcome_header_project">{{setting 'project'}}</div>
+    <div>{{setting 'motto'}}</div>
   </div>
 </template>
 
@@ -34,11 +34,11 @@
   <hr/>
   <div id="welcome_links">
     <div id="explore_library">
-      <a id="proceed_without_login" href="{{pathFor 'library' }}">Explore {{setting 'project'}}</a>
+      <a href="{{pathFor 'library' }}">Explore {{setting 'project'}}</a>
     </div>
     <div>
-      <a id="point_to_authenticate_log_in" href="{{pathFor 'login' }}">Log In</a> or
-      <a id="point_to_authenticate_create_account" href="{{pathFor 'register' }}">Create account</a>
+      <a href="{{pathFor 'login' }}">Log In</a> or
+      <a href="{{pathFor 'register' }}">Create account</a>
     </div>
   </div>
 </template>
@@ -50,7 +50,7 @@
     <label for="login-password">Password</label>
     <a id="resetPassword" tabindex="-1" href="{{pathFor 'reset' }}">Forgot?</a>
     <input type="password" id="login-password" placeholder="Password"/>
-    <input type="submit" id="login-button" value="Sign in" />
+    <input type="submit" value="Sign in" />
   </form>
 </template>
 
@@ -64,7 +64,7 @@
     <input type="password" id="account-password" placeholder="Password"/>
     <label for="account-password-again">Password (again)</label>
     <input type="password" id="account-password-again" placeholder="Password"/>
-    <input type="submit" id="create-account" value="Create an Account" />
+    <input type="submit" value="Create an Account" />
   </form>
 </template>
 
