@@ -11,33 +11,34 @@ Template.library.events({
   },
 });
 
-Template.library.get_works = function() {
-  Session.setDefault('library-sort', 'annos');
+Template.library.helpers({
+  get_works: function() {
+    Session.setDefault('library-sort', 'annos');
 
-  return Works.find({}, {
-    fields: {
-      title: 1,
-      author: 1,
-      summary: 1,
-      annotationsCount: 1,
-      year: 1
-    },
-    sort: {
-      title: ['title'],
-      annos: [['annotationsCount', 'desc'], 'title'],
-      author: ['author', 'title'],
-      date: [['year', 'desc'], 'title']
-    }[Session.get('library-sort')]
-  });
-};
-
-Template.library.grid_classes = function() {
-  if (Session.equals('library-mode', 'grid')) {
-    return 'grid small-block-grid-1 medium-block-grid-2 large-block-grid-3';
-  } else  {
-    return '';
+    return Works.find({}, {
+      fields: {
+        title: 1,
+        author: 1,
+        summary: 1,
+        annotationsCount: 1,
+        year: 1
+      },
+      sort: {
+        title: ['title'],
+        annos: [['annotationsCount', 'desc'], 'title'],
+        author: ['author', 'title'],
+        date: [['year', 'desc'], 'title']
+      }[Session.get('library-sort')]
+    });
+  },
+  grid_classes: function() {
+    if (Session.equals('library-mode', 'grid')) {
+      return 'grid small-block-grid-1 medium-block-grid-2 large-block-grid-3';
+    } else  {
+      return '';
+    }
   }
-};
+});
 
 Template.library.rendered = function() {
   // bah
@@ -69,15 +70,16 @@ Template.work.events({
   },
 });
 
-Template.work.my_item_mark = function() {
-  if (Meteor.userId() === null) return "hide";
-  return "fa fa-star-o";
-};
-
-Template.work.published = function() {
-  if (this.year !== null) {
-    return ', ' + this.year.toString();
-  } else {
-    return '';
+Template.work.helpers({
+  my_item_mark: function() {
+    if (Meteor.userId() === null) return "hide";
+    return "fa fa-star-o";
+  },
+  published: function() {
+    if (this.year !== null) {
+      return ', ' + this.year.toString();
+    } else {
+      return '';
+    }
   }
-};
+});

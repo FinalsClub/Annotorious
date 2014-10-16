@@ -41,20 +41,25 @@ Template.top_and_side.events({
   }
 });
 
-/* conditionally show the reading menu on the reading view page */
-Template.top_and_side.show_reading_menu = function () {
-  return this.current === 'readingview';
-};
+Template.top_and_side.helpers({
+  /* conditionally show the reading menu on the reading view page */
+  show_reading_menu: function () {
+    return this.current === 'readingview';
+  },
+  about_text: function() {
+    return 'About ' + Meteor.settings.public.project;
+  }
+});
 
-Template.top_and_side.about_text = function() {
-  return 'About ' + Meteor.settings.public.project;
-};
+Template.menu_item.helpers({
+  currentRoute: function() {
+    return this.current == this.route;
+  }
+});
 
-Template.menu_item.currentRoute = function() {
-  return this.current == this.route;
-};
-
-Template.reading_menu_item.currentPanel = function() {
-  return Session.get('reading-view-panel-visible') &&
-         Session.equals('reading-view-panel', this.panel);
-};
+Template.reading_menu_item.helpers({
+  currentPanel: function() {
+    return Session.get('reading-view-panel-visible') &&
+           Session.equals('reading-view-panel', this.panel);
+  }
+});
