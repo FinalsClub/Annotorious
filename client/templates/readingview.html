@@ -18,7 +18,13 @@
 </template>
 
 <template name="content">
-  <div>{{{ section.html }}}</div>
+  <div>{{{ section.html }}}
+    {{#with next_section}}
+      <div id="next-section">
+        <a href="{{pathFor 'readingview' _id=this.toHexString}}">Next section...</a>
+      </div>
+    {{/with}}
+  </div>
 </template>
 
 <template name="sections">

@@ -110,6 +110,23 @@ Template.content.events({
   }
 });
 
+Template.content.helpers({
+  next_section: function() {
+    if (!this.work) {
+      return;
+    }
+
+    var self = this, found = false;
+    return iterate_content_ids(this.work.sections, function(id) {
+      if (found) {
+        return id;
+      } else if (id.equals(self.section._id)) {
+        found = true;
+      }
+    });
+  }
+});
+
 Template.content.rendered = function() {
   var self = this;
   var store_config = {

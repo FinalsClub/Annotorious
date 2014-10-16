@@ -73,5 +73,10 @@
     .annotator-hl {
       cursor: pointer;
     }
+
+    & > #next-section {
+      text-align: right; /* IE - no end */
+      text-align: end;
+    }
   }
 }
