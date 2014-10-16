@@ -50,7 +50,7 @@
     <label for="login-password">Password</label>
     <a id="resetPassword" tabindex="-1" href="{{pathFor 'reset' }}">Forgot?</a>
     <input type="password" id="login-password" placeholder="Password"/>
-    <input type="submit" value="Log in" />
+    <button type="submit">Log in</button>
   </form>
 </template>
 
@@ -64,7 +64,7 @@
     <input type="password" id="account-password" placeholder="Password"/>
     <label for="account-password-again">Password (again)</label>
     <input type="password" id="account-password-again" placeholder="Password"/>
-    <input type="submit" value="Create an account" />
+    <button type="submit">Create an account</button>
   </form>
 </template>
 
@@ -75,13 +75,13 @@
       <input type="password" id="new-password" placeholder="Password"/>
       <label for="new-password-again">New password (again)</label>
       <input type="password" id="new-password-again" placeholder="Password"/>
-      <input type="submit" value="Change password" />
+      <button type="submit">Change password</button>
     </form>
   {{else}}
     <form id="recovery-form">
       <label for="recovery-email">Recovery email</label>
       <input type="text" id="recovery-email" placeholder="Email"/>
-      <input type="submit" value="Send reset email" />
+      <button type="submit">Send reset email</button>
     </form>
   {{/if}}
 </template>
