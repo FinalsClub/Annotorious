@@ -37,7 +37,7 @@
       <a href="{{pathFor 'library' }}">Explore {{setting 'project'}}</a>
     </div>
     <div>
-      <a href="{{pathFor 'login' }}">Log In</a> or
+      <a href="{{pathFor 'login' }}">Log in</a> or
       <a href="{{pathFor 'register' }}">Create account</a>
     </div>
   </div>
@@ -45,12 +45,12 @@
 
 <template name="login">
   <form id="login-form">
-    <label for="login-user">Username or Email address</label>
+    <label for="login-user">Username or email address</label>
     <input type="text" id="login-user" placeholder="Username or Email"/>
     <label for="login-password">Password</label>
     <a id="resetPassword" tabindex="-1" href="{{pathFor 'reset' }}">Forgot?</a>
     <input type="password" id="login-password" placeholder="Password"/>
-    <input type="submit" value="Sign in" />
+    <input type="submit" value="Log in" />
   </form>
 </template>
 
@@ -64,7 +64,7 @@
     <input type="password" id="account-password" placeholder="Password"/>
     <label for="account-password-again">Password (again)</label>
     <input type="password" id="account-password-again" placeholder="Password"/>
-    <input type="submit" value="Create an Account" />
+    <input type="submit" value="Create an account" />
   </form>
 </template>
 
@@ -75,13 +75,13 @@
       <input type="password" id="new-password" placeholder="Password"/>
       <label for="new-password-again">New password (again)</label>
       <input type="password" id="new-password-again" placeholder="Password"/>
-      <input type="submit" value="Change Password" />
+      <input type="submit" value="Change password" />
     </form>
   {{else}}
     <form id="recovery-form">
       <label for="recovery-email">Recovery email</label>
       <input type="text" id="recovery-email" placeholder="Email"/>
-      <input type="submit" value="Send Reset Instruction" />
+      <input type="submit" value="Send reset email" />
     </form>
   {{/if}}
 </template>
