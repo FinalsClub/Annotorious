@@ -80,87 +80,84 @@ TopAndSideController = EnhancedDataController.extend({
   layoutTemplate: 'top_and_side'
 });
 
-Router.map(function() {
-  // Read paths from a JSON configuration file.
-  // Formatted as { '/path': 'template', ... }
-  // This seems nicer in a config file than hard coding it here.
-  // Pull this from routes.js
-  var welcome_routes = {
-    welcome_blurb: {
-      path: "/welcome",
-      title: 'Welcome'
-    },
-    login: {
-      path: "/login",
-      title: 'Login',
-    },
-    register: {
-      path: "/register",
-      title: 'Register'
-    },
-    reset: {
-      path: "/reset",
-      title: "Reset Password"
-    }
-  };
+// Read paths from a JSON configuration file.
+// Formatted as { '/path': 'template', ... }
+// This seems nicer in a config file than hard coding it here.
+// Pull this from routes.js
+var welcome_routes = {
+  welcome_blurb: {
+    path: "/welcome",
+    title: 'Welcome'
+  },
+  login: {
+    path: "/login",
+    title: 'Login',
+  },
+  register: {
+    path: "/register",
+    title: 'Register'
+  },
+  reset: {
+    path: "/reset",
+    title: "Reset Password"
+  }
+};
 
-  this.route('root', {
-    path: '/',
-    action: function() {
-      Router.go('welcome_blurb');
-    }
-  });
+Router.route('root', {
+  path: '/',
+  action: function() {
+    Router.go('welcome_blurb');
+  }
+});
 
-  this.route('library', {
-    path: '/library',
-    controller: TopAndSideController,
-    waitOn: function() {
-      return Meteor.subscribe('library');
-    },
-    title: 'Library'
-  });
+Router.route('library', {
+  path: '/library',
+  controller: TopAndSideController,
+  waitOn: function() {
+    return Meteor.subscribe('library');
+  },
+  title: 'Library'
+});
 
-  this.route('readingview', {
-    path: '/view/:_id',
-    controller: TopAndSideController,
-    waitOn: function() {
-      var id = new Meteor.Collection.ObjectID(this.params._id);
+Router.route('readingview', {
+  path: '/view/:_id',
+  controller: TopAndSideController,
+  waitOn: function() {
+    var id = new Meteor.Collection.ObjectID(this.params._id);
 
-      return Meteor.subscribe('sectionview', id);
-    },
-    afterData: function() {
-      var id = new Meteor.Collection.ObjectID(this.params._id);
-      var section = SectionContents.findOne(id);
-      var work = Works.findOne(section.work_id);
-      return {
-        section: section,
-        work: work,
-        title: work.title
-      };
-    }
-  });
+    return Meteor.subscribe('sectionview', id);
+  },
+  afterData: function() {
+    var id = new Meteor.Collection.ObjectID(this.params._id);
+    var section = SectionContents.findOne(id);
+    var work = Works.findOne(section.work_id);
+    return {
+      section: section,
+      work: work,
+      title: work.title
+    };
+  }
+});
 
-  this.route('myitems', {
-    path: '/myitems',
-    controller: TopAndSideController,
-    title: 'My Items'
-  });
+Router.route('myitems', {
+  path: '/myitems',
+  controller: TopAndSideController,
+  title: 'My Items'
+});
 
-  this.route('settings', {
-    path: '/settings',
-    controller: TopAndSideController,
-    title: 'Settings'
-  });
+Router.route('settings', {
+  path: '/settings',
+  controller: TopAndSideController,
+  title: 'Settings'
+});
 
-  this.route('about', {
-    path: '/about',
-    controller: TopAndSideController,
-    title: 'About'
-  });
+Router.route('about', {
+  path: '/about',
+  controller: TopAndSideController,
+  title: 'About'
+});
 
-  var self = this;
-  _.each(welcome_routes, function(obj, name) {
-    obj.layoutTemplate = 'welcome';
-    self.route(name, obj);
-  });
+_.each(welcome_routes, function(obj, name) {
+  obj.layoutTemplate = 'welcome';
+  Router.route(name, obj);
 });
