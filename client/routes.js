@@ -106,7 +106,7 @@ var welcome_routes = {
 Router.route('root', {
   path: '/',
   action: function() {
-    Router.go('welcome_blurb');
+    this.redirect('welcome_blurb');
   }
 });
 
