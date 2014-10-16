@@ -117,7 +117,7 @@ Template.content.rendered = function() {
     annotationPath: 'annotation',
     createDocument: function(annotation) {
       return {
-        content_id: self.data._id,
+        content_id: self.data.section._id,
         annotation: annotation
       };
     }
@@ -134,7 +134,7 @@ Template.content.rendered = function() {
                           .getInstance();
 
   this.annotator.attach(elem);
-  this.annotator.annotations.load({ content_id: this.data._id });
+  this.annotator.annotations.load({ content_id: this.data.section._id });
 };
 
 Template.content.destroyed = function() {

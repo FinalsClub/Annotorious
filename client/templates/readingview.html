@@ -8,17 +8,17 @@
   </div>
   <div class="page-content">
     <div id="section-content">
-      {{#with section}}
+      {{#if section}}
         {{> content}}
       {{else}}
         Loading...
-      {{/with}}
+      {{/if}}
     </div>
   </div>
 </template>
 
 <template name="content">
-  <div>{{{ html }}}</div>
+  <div>{{{ section.html }}}</div>
 </template>
 
 <template name="sections">
