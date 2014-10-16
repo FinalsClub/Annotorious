@@ -71,8 +71,10 @@
 <template name="reset">
   {{#if resetPassword}}
     <form id="reset-form">
-      <label for="new-password-password">New password</label>
-      <input type="text" id="new-password-password" placeholder="Password"/>
+      <label for="new-password">New password</label>
+      <input type="password" id="new-password" placeholder="Password"/>
+      <label for="new-password-again">New password (again)</label>
+      <input type="password" id="new-password-again" placeholder="Password"/>
       <input type="submit" value="Change Password" />
     </form>
   {{else}}

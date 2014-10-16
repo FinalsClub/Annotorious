@@ -13,8 +13,11 @@ function isEmail(email) {
   return re.test(email);
 }
 
-Accounts.onResetPasswordLink(function(token) {
+var doneCallback;
+Session.setDefault('resetPassword', null);
+Accounts.onResetPasswordLink(function(token, done) {
   Session.set('resetPassword', token);
+  doneCallback = done;
 });
 
 /*
@@ -102,6 +105,33 @@ Template.reset.events({
       } else {
         $(target).append('<p>Password reset email sent to ' + email + '.</p>');
       }
+    });
+  },
+  'submit #reset-form': function(event) {
+    event.preventDefault();
+    var target = event.currentTarget;
+
+    var password = target.elements['new-password'].value;
+    var password_again = target.elements['new-password-again'].value;
+    var validation = isValidPassword(password, password_again);
+    if (validation !== null) {
+      alert(validation);
+      return;
+    }
+
+    var token = Session.get('resetPassword');
+    Accounts.resetPassword(token, password, function(err) {
+      if (err) {
+        alert('Password reset failed: ' + err.reason);
+      } else {
+        Router.go('welcome_blurb');
+        alert('Password reset successful!');
+      }
+
+      doneCallback();
+
+      Session.set('resetPassword', null);
+      doneCallback = null;
     });
   }
 });

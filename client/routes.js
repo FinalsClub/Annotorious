@@ -1,4 +1,8 @@
 Router.onBeforeAction(function() {
+  if (!Session.equals('resetPassword', null) && this.route.name !== 'reset') {
+    this.redirect('reset', null, { replaceState: true });
+  }
+
   if ('title' in this.route.options) {
     set_title(this.route.options.title);
   }
