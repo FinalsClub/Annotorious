@@ -49,17 +49,20 @@ Section = new SimpleSchema({
   }
 });
 
-first_content_section_id = function(sections) {
+iterate_content_ids = function(sections, cb) {
   for (var i = 0; i < sections.length; i++) {
     var section = sections[i];
 
     if (section.content_id) {
-      return section.content_id;
+      var result = cb(section.content_id);
+      if (result !== undefined) {
+        return result;
+      }
     }
 
     if (section.subSections) {
-      var result = first_content_section_id(section.subSections);
-      if (result) {
+      var result = iterate_content_ids(section.subSections, cb);
+      if (result !== undefined) {
         return result;
       }
     }

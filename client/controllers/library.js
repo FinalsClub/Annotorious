@@ -48,7 +48,7 @@ Template.library.rendered = function() {
 Template.work.events({
   'click': function(event) {
     /* load first content section for the selected work */
-    var cid = first_content_section_id(Works.findOne(this._id).sections);
+    var cid = iterate_content_ids(Works.findOne(this._id).sections, _.identity);
     Router.go('readingview', {_id: cid.toHexString()});
   },
 });
