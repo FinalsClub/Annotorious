@@ -80,25 +80,6 @@ TopAndSideController = EnhancedDataController.extend({
   layoutTemplate: 'top_and_side'
 });
 
-var welcome_routes = {
-  welcome_blurb: {
-    path: "/welcome",
-    title: 'Welcome'
-  },
-  login: {
-    path: "/login",
-    title: 'Login',
-  },
-  register: {
-    path: "/register",
-    title: 'Register'
-  },
-  reset: {
-    path: "/reset",
-    title: "Reset Password"
-  }
-};
-
 Router.route('root', {
   path: '/',
   action: function() {
@@ -153,7 +134,24 @@ Router.route('about', {
   title: 'About'
 });
 
-_.each(welcome_routes, function(obj, name) {
+_.each({
+  welcome_blurb: {
+    path: "/welcome",
+    title: 'Welcome'
+  },
+  login: {
+    path: "/login",
+    title: 'Login'
+  },
+  register: {
+    path: "/register",
+    title: 'Register'
+  },
+  reset: {
+    path: "/reset",
+    title: "Reset Password"
+  }
+}, function(obj, name) {
   obj.layoutTemplate = 'welcome';
   Router.route(name, obj);
 });
