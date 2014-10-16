@@ -49,6 +49,23 @@ Section = new SimpleSchema({
   }
 });
 
+first_content_section_id = function(sections) {
+  for (var i = 0; i < sections.length; i++) {
+    var section = sections[i];
+
+    if (section.content_id) {
+      return section.content_id;
+    }
+
+    if (section.subSections) {
+      var result = first_content_section_id(section.subSections);
+      if (result) {
+        return result;
+      }
+    }
+  }
+};
+
 Works = new Meteor.Collection("works", {
   idGeneration: 'MONGO',
   schema: {
