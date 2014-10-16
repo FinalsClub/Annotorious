@@ -80,10 +80,6 @@ TopAndSideController = EnhancedDataController.extend({
   layoutTemplate: 'top_and_side'
 });
 
-// Read paths from a JSON configuration file.
-// Formatted as { '/path': 'template', ... }
-// This seems nicer in a config file than hard coding it here.
-// Pull this from routes.js
 var welcome_routes = {
   welcome_blurb: {
     path: "/welcome",
