@@ -16,20 +16,33 @@
       font-weight: bold;
     }
 
-    button {
+    button, input {
       background-color: $theme3_fg;
       border-radius: 0.25em;
+    }
+
+    button {
       padding: 0.5em 1em;
       color: $theme3_bg;
       line-height: inherit;
+    }
 
-      &:hover, &:focus {
-        box-shadow: 0 0 10px #888;
-      }
+    input {
+      border: none;
+      box-shadow: none;
+      transition: none;
+    }
 
-      &:active {
-        box-shadow: 0 0 10px #666;
-      }
+    button:hover, button:focus, input:hover {
+      box-shadow: 0 0 10px #888;
+    }
+
+    /* <input>s don't have an :active state, so
+     * their highest level of "activation" is actually
+     * the :focus state.
+     */
+    button:active, input:focus {
+      box-shadow: 0 0 10px #666;
     }
 
     #welcome_header {
