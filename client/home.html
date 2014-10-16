@@ -30,7 +30,7 @@
           {{> menu_item route="about" icon="question" text=about_text current=current }}
           <li>
             {{#if currentUser}}
-              <a href="#" id="log-out-button">Log out</a>
+              <span id="log-out-button">Log out</span>
             {{else}}
               <a href="{{pathFor 'login'}}">Log in</a>
             {{/if}}
@@ -58,6 +58,6 @@
 
 <template name="reading_menu_item">
   <li>
-    <a href="#" class="show-panel-button {{#if currentPanel}}current{{/if}}">{{text}}</a>
+    <span class="show-panel-button {{#if currentPanel}}current{{/if}}">{{text}}</span>
   </li>
 </template>

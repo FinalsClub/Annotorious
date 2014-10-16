@@ -53,9 +53,14 @@
         padding: 0.75em;
         display: block;
         transition: background-color 300ms ease;
+        cursor: pointer;
 
         &:hover, &.current {
           background-color: $theme2_hl;
+        }
+
+        &.current:not(.show-panel-button) {
+          cursor: default;
         }
       }
     }
