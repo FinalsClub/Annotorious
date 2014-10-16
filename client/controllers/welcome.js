@@ -81,12 +81,6 @@ Template.register.events({
   }
 });
 
-Template.reset.helpers({
-  resetPassword: function() {
-    return Session.get('resetPassword');
-  }
-});
-
 Template.reset.events({
   'submit #recovery-form': function(event) {
     event.preventDefault();
@@ -133,5 +127,11 @@ Template.reset.events({
       Session.set('resetPassword', null);
       doneCallback = null;
     });
+  }
+});
+
+Template.reset.helpers({
+  resetPassword: function() {
+    return Session.get('resetPassword');
   }
 });

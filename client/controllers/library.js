@@ -1,3 +1,16 @@
+Template.library.events({
+  'click .sort-option': function(event) {
+    Session.set('library-sort', this.sort);
+  },
+  'click #library-mode-toggle': function(event) {
+    if (Session.equals('library-mode', 'grid')) {
+      Session.set('library-mode', 'list');
+    } else {
+      Session.set('library-mode', 'grid');
+    }
+  },
+});
+
 Template.library.get_works = function() {
   Session.setDefault('library-sort', 'annos');
 
@@ -18,18 +31,18 @@ Template.library.get_works = function() {
   });
 };
 
-Template.library.events({
-  'click .sort-option': function(event) {
-    Session.set('library-sort', this.sort);
-  },
-  'click #library-mode-toggle': function(event) {
-    if (Session.equals('library-mode', 'grid')) {
-      Session.set('library-mode', 'list');
-    } else {
-      Session.set('library-mode', 'grid');
-    }
-  },
-});
+Template.library.grid_classes = function() {
+  if (Session.equals('library-mode', 'grid')) {
+    return 'grid small-block-grid-1 medium-block-grid-2 large-block-grid-3';
+  } else  {
+    return '';
+  }
+};
+
+Template.library.rendered = function() {
+  // bah
+  $(document).foundation();
+};
 
 function first_content_section_id(sections) {
   for (var i = 0; i < sections.length; i++) {
@@ -55,19 +68,6 @@ Template.work.events({
     Router.go('readingview', {_id: cid.toHexString()});
   },
 });
-
-Template.library.grid_classes = function() {
-  if (Session.equals('library-mode', 'grid')) {
-    return 'grid small-block-grid-1 medium-block-grid-2 large-block-grid-3';
-  } else  {
-    return '';
-  }
-};
-
-Template.library.rendered = function() {
-  // bah
-  $(document).foundation();
-};
 
 Template.work.my_item_mark = function() {
   if (Meteor.userId() === null) return "hide";
