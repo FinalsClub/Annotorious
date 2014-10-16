@@ -16,6 +16,22 @@
       font-weight: bold;
     }
 
+    button {
+      background-color: $theme3_fg;
+      border-radius: 0.25em;
+      padding: 0.5em 1em;
+      color: $theme3_bg;
+      line-height: inherit;
+
+      &:hover, &:focus {
+        box-shadow: 0 0 10px #888;
+      }
+
+      &:active {
+        box-shadow: 0 0 10px #666;
+      }
+    }
+
     #welcome_header {
       text-align: center;
 
@@ -49,23 +65,8 @@
       text-align: center;
 
       #explore_library {
-        /* invert colors */
-        display: inline-block;
-        background-color: $theme3_fg;
-        border-radius: 0.25em;
         margin-bottom: 1em;
-        padding: 0.5em 1em;
         font-size: larger;
-        color: $theme3_bg;
-        font-weight: normal;
-
-        &:hover, &:focus {
-          box-shadow: 0 0 10px #888;
-        }
-
-        &:active {
-          box-shadow: 0 0 10px #666;
-        }
       }
     }
   }
